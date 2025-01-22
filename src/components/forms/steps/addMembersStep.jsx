@@ -7,7 +7,7 @@ import { formatPhoneNumber, validate_email, validate_isEmpty, validate_phone, va
 import { Select } from "../../ui/select";
 import { FileUpload } from '../../ui/file-upload'
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { submit_step2 } from "../../../app/features/form/formSlice";
 import { useAddMemberMutation, useAddTechfiestaMembersMutation, useLazyGetMembersQuery, useLazyGetTechfiestaMembersQuery, useRemoveMemberMutation } from "../../../app/services/formAPI";
 import scrollToTop from "../../../utils/scrollToTop";
@@ -26,7 +26,6 @@ const initialState = {
 
 const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
   
-  const step2 = useSelector(state => state.form.step2)
   const ename = window.localStorage.getItem('event_name');
   const form = JSON.parse(window.sessionStorage.getItem('form'));
   const ticket = window.localStorage.getItem('ticket') || '';
@@ -76,13 +75,14 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
         setMembers([...data.step_2]);
       }
       else{
-        setMembers([...step2])
+        // setMembers([...step2])
       }
     }
     else if(isTechfiestaError){
       toast.error(techerr?.data?.message || 'Failed to fetch Team Members');
       prevStep();
     }
+    console.log(data);
   }, [data, isSuccess, techfiestaMems, isTechfiestaSuccess, isTechfiestaError]); 
   
   const handleAddMember = async () => {
