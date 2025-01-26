@@ -27,7 +27,7 @@ const AdminRegistrations = () => {
 
   useEffect(() => {
     if(isSuccess){
-      setRows([...data]);
+      setRows([...data])
     }
   }, [isSuccess, data])
   
