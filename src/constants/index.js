@@ -34,6 +34,29 @@ import {
     },
   ];
 
+  const adminNavlinks = [
+    {
+      id: "admin",
+      isHome: false,
+      title: "Dashboard",
+    },
+    {
+      id: "admin/verify/impetus",
+      isHome: false,
+      title: "Verify",
+    },
+    {
+      id: "admin/registrations/impetus",
+      isHome: false,
+      title: "Teams",
+    },
+    {
+      id: "admin/logout",
+      isHome: false,
+      title: "Logout",
+    },
+  ];
+
   const about_text = "Impetus and Concepts (InC) is a flagship technical event of SCTR's Pune Institute of Computer Technology (PICT), Pune , which will be held during the 1st week of April 2024. InC is an intercollegiate international level competition that has been catching the attention of corporate giants for the quality of projects and an opportunity to recruit/mentor young talented budding entrepreneurs. Every year InC sets a new benchmark and provides an opportunity for students to realize their ideas into effective products. Over the years, it has become the most popular and awaited event with continuous improvement in footfall, the number and quality of projects/papers, etc. This event also sets a platform for students to design, exhibit, and watch their ideas come true. This technical fest has inventive events namely - Impetus, Concepts, Pradnya.Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains ; Concepts is a Project Competition for Final Year Students, all engineering branches confined to specific domains ; and Pradnya - An International Coding Competition. Students are invited with projects addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education, etc. and the best project judged by the juries will be awarded with a cash prize of ₹ 1 Lakh Cash Prize from PICT."
   
   const sponsors = {
@@ -145,7 +168,7 @@ import {
     concepts: {
       id: 'concepts',
       logo: concepts,
-      criteria: "Final year students enrolled in BE/ BTech degree.",
+      criteria: "Final year students enrolled in BE / BTech degree.",
       schedule: "March 21, 2025",
       name: "Concepts",
       notices: [
@@ -157,7 +180,7 @@ import {
       ],
 
       short_desc:
-        "The most grand project exhibition event for Final Year students.",
+        "The Premier Project Exhibition showcasing Innovation and Achievement",
 
       description: ["Concepts is an inter-collegiate international-level competition and has been attracting corporate giants for not only sponsorship but also  for guiding and mentoring the participants for their Quality products/projects and providing on spot job offers & internships. It offers Patent registration fees for Innovative and Patentable projects. During the 3 day event, Final Year students from various colleges across India and abroad showcase their projects.",],
 
@@ -214,7 +237,7 @@ import {
       note1: `🔹Judge's decision will be final.`,
       note3: `🔹Already registered candidatess need not register again.`,
       schedule: "March 21, 2025",
-      criteria: `Junior Level - This category is open for all students who are pursuing first or second year of any undergraduate degree/course.#$Senior Level - Third and final year engineering students of any undergraduate degree/course.`,
+      criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
       logo: pradnya,
       name: "Pradnya",
       short_desc: "Competitive Programming",
@@ -342,6 +365,11 @@ import {
     */
   };
 
+  const ruleBookLinks = new Map([
+    ["impetus", "https://drive.google.com/file/d/1n2Ksym9IS7eORj2VyhvhZb2vMZwTZgM2/view?usp=sharing"],
+    ["concepts", "https://drive.google.com/file/d/1SS87y18kA5TbseNXieuszv84eFqQf1YI/view?usp=sharing"],
+    ["pradnya", "https://drive.google.com/file/d/1SZKhQM-5kQAT_rshHYQdZLtOlWTfXiEt/view?usp=sharing"],
+  ])
 
   const faculty = [
     { value: "Advisory Committee", names: [{ value: "1. Director: Dr. P. T. Kulkarni" }, { value: "2. Principal: Dr. S. T. Gandhe" }, { value: "3. Convenor: Dr. G. P. Potdar" }, { value: "4. HOCD:  Dr. G. V. Kale" }, { value: "5. HOED:  Dr. M. V. Munot" }, { value: "6. HOID:  Dr. A. S. Ghotkar" }, { value: "7. HOFD: Prof. E. M. Reddy" }] },
@@ -726,4 +754,4 @@ const core = [
   ];
   
   
-  export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core };
+export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, };

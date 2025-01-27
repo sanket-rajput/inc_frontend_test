@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
 import FormButton from "../FormButton";
-import {
-  AlertCircle,
-} from "lucide-react";
 import EventDetail from "../eventDetail";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +25,7 @@ const PaymentStep = ({ event, imagePath, amount, prevStep }) => {
   const isPICT = form?.step3?.isPICT === "1";
   const isInternational = form?.step3?.isInternational === "1";
   const techfiesta = form?.step1?.techfiesta === "1";
-  const [ countdown, setCountdown ] = useState(3);
+  const [ countdown, setCountdown ] = useState(10);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,6 +66,10 @@ const PaymentStep = ({ event, imagePath, amount, prevStep }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasRegistered){
+      toast.info("You have already registered.")
+      return;
+    }
     if(!isInternational && !isPICT && !techfiesta && !validate()){
       toast.error("Fill all the required details correctly!")
       return;
@@ -119,10 +120,10 @@ const PaymentStep = ({ event, imagePath, amount, prevStep }) => {
             <div className="space-y-2">
               <Label required className="text-lg flex items-center gap-2">
                 Transaction/UTR ID
-                <AlertCircle
+                {/* <AlertCircle
                   className="h-4 w-4 text-blue-400"
                   title="12 digit transaction ID required"
-                />
+                /> */}
               </Label>
               <Input
                 type="text"
@@ -158,7 +159,7 @@ const PaymentStep = ({ event, imagePath, amount, prevStep }) => {
             <IconCircleCheck color="#22c55e" size={80}/>
             <h3 className="text-xl font-semibold text-center text-green-500">
               Thank You for Registering <br />
-              Our Team is Verifying your Details. <br />
+              Confirmation Mail will be received once details are verified. <br />
               <span className="text-secondary">Redirecting in {countdown}...</span>
             </h3>
           </div>
