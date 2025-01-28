@@ -12,7 +12,6 @@ import { submit_step2 } from "../../../app/features/form/formSlice";
 import { useAddMemberMutation, useAddTechfiestaMembersMutation, useLazyGetMembersQuery, useLazyGetTechfiestaMembersQuery, useRemoveMemberMutation } from "../../../app/services/formAPI";
 import scrollToTop from "../../../utils/scrollToTop";
 import Loader from "../../ui/Loader";
-import { IconInfoCircleFilled } from "@tabler/icons-react";
 
 const initialState = {
   id: "",
@@ -110,8 +109,8 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
       setPhone("");
     }
     catch(error){
-      console.error(error)
-      toast.error(error?.data?.message || error?.message || 'Failed to Add Member')
+      if(error?.status === 'FETCH_ERROR') toast.error('Invalid File Input');
+      else toast.error(error?.data?.message || error?.message || 'Failed to Add Member')
     }
 
   };
@@ -132,11 +131,11 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
 
   const handleSubmit = async () => {
     if (members.length < minMembers) {
-      toast.info('Min Member must be ' + minMembers)
+      toast.info('Min Members must be ' + minMembers)
       return;
     }
     else if (members.length > maxMembers) {
-      toast.info('Max allowed Members is ' + maxMembers)
+      toast.info('Max allowed Members are ' + maxMembers)
       return;
     }
     else{
@@ -156,6 +155,7 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
         setPhone("");
         handleSubmit();
       } catch (error) {
+        console.error(error);
         toast.error(error?.data?.message || error?.message  || 'Failed to Add Members')
       }
     }
@@ -278,7 +278,7 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
 
         {/* ID Card Photo Upload */}
         <div className="relative">
-          <Label htmlFor="member_id">ID Card</Label>
+          <Label htmlFor="member_id" required>College ID Card</Label>
           <FileUpload 
           id="member_id"
           value={newMember.member_id}
@@ -289,10 +289,10 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
             }
           }
           />
-          <div className="mt-2 flex items-center gap-1 text-sm text-cyan-500">
+          {/* <div className="mt-2 flex items-center gap-1 text-sm text-cyan-500">
             <IconInfoCircleFilled />
             <p>{`Mandatory for International Candidates`}</p>
-          </div>
+          </div> */}
         </div>
 
         <button
