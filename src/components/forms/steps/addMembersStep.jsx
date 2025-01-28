@@ -12,6 +12,7 @@ import { submit_step2 } from "../../../app/features/form/formSlice";
 import { useAddMemberMutation, useAddTechfiestaMembersMutation, useLazyGetMembersQuery, useLazyGetTechfiestaMembersQuery, useRemoveMemberMutation } from "../../../app/services/formAPI";
 import scrollToTop from "../../../utils/scrollToTop";
 import Loader from "../../ui/Loader";
+import { IconInfoCircleFilled } from "@tabler/icons-react";
 
 const initialState = {
   id: "",
@@ -109,8 +110,8 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
       setPhone("");
     }
     catch(error){
-      console.error(error)
-      toast.error(error?.data?.message || error?.message || 'Failed to Add Member')
+      if(error?.status === 'FETCH_ERROR') toast.error('Invalid File Input');
+      else toast.error(error?.data?.message || error?.message || 'Failed to Add Member')
     }
 
   };
@@ -155,6 +156,7 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
         setPhone("");
         handleSubmit();
       } catch (error) {
+        console.error(error);
         toast.error(error?.data?.message || error?.message  || 'Failed to Add Members')
       }
     }
