@@ -1,7 +1,6 @@
 
 import { sponsors } from '../constants'
 import { styles } from '../styles'
-import { motion } from 'framer-motion'
 import { cn } from "../lib/utils";
 import {
   createContext,
@@ -16,15 +15,11 @@ const Sponsors = () => {
 
   return (
     <section className='h-full w-full flex flex-col items-center justify-evenly pb-24 pt-4'>
-      <motion.div 
-      initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ ease: "easeInOut", duration: 0.75}}
+      <div
       > 
         <p className={`${styles.sectionSubText}`}>InC 2024</p>
         <h2 className={`${styles.sectionHeadText}`}>Sponsors.</h2>
-      </motion.div>
+      </div>
 
       <div className='flex flex-col w-full h-full items-center gap-10 sm:py-16 py-8'>
         {
