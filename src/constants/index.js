@@ -55,6 +55,39 @@ import {
       title: "Teams",
     },
     {
+      id: "admin/allocate/impetus",
+      isHome: false,
+      title: "Allocate",
+    },
+    {
+      id: "admin/deallocate/impetus",
+      isHome: false,
+      title: "Deallocate",
+    },
+    {
+      id: "admin/logout",
+      isHome: false,
+      title: "Logout",
+    },
+  ];
+
+  const judgeNavLinks = [
+    {
+      id: "judge",
+      isHome: false,
+      title: "Home",
+    },
+    {
+      id: "judge/evaluate",
+      isHome: false,
+      title: "Evaluate",
+    },
+    {
+      id: "judge/profile",
+      isHome: false,
+      title: "Profile",
+    },
+    {
       id: "admin/logout",
       isHome: false,
       title: "Logout",
@@ -745,4 +778,4 @@ const core = [
   ];
   
   
-export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, };
+export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, judgeNavLinks, };
