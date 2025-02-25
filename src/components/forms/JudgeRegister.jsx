@@ -13,6 +13,7 @@ import { RadioButton } from "../ui/RadioButton";
 import { Select } from "../ui/select";
 import { useProcessJudgeRegisterMutation } from "../../app/services/judgeAPI";
 import { IconCircleCheck } from "@tabler/icons-react";
+import { useSearchParams } from "react-router-dom";
 
 const initialState = {
   'events': 'impetus',
@@ -25,7 +26,7 @@ const initialState = {
   'exp': '3',
   'domains': [],
   'slots': [],
-  'min_projects': '3',
+  'min_projects': '5',
   'isPICT': null,
   'referral': ''
 }
@@ -33,11 +34,15 @@ const initialState = {
 const JudgeRegister = () => {
 
   const [ formData, setFormData ] = useState(initialState)
+  const [searchParams] = useSearchParams();
   const [phone, setPhone] = useState("");
   const [ processJudgeRegister, { isLoading, isSuccess } ] = useProcessJudgeRegisterMutation();
 
   useEffect(() => {
     scrollToTop()
+    if(!searchParams.get('URLAccessCode')){
+      toast.info('URL Access Code missing in query param');
+    }
   }, [])
   
   const handleChange = (e) => {
@@ -61,10 +66,19 @@ const JudgeRegister = () => {
     e.preventDefault();
     if(validateJudgeForm(formData)){
       toast.error('Fill all the required details correctly!');
-      return
+      return;
+    }
+    else if(formData.domains.length < 2){
+      toast.info('Select aleast 2 domains for judging.');
+      return;
+    }
+    else if(Number(formData.min_projects) < 5){
+      toast.info('Select atleast 5 projects for judging.')
+      return;
     }
     try{
-      const data = await processJudgeRegister(formData).unwrap();
+      const tempData = { ...formData, accessCode: searchParams.get('URLAccessCode') };
+      const data = await processJudgeRegister(tempData).unwrap();
       if(data?.success) toast.success('Registered Successfully');
       else toast.info('Unable to register');
     }
@@ -99,7 +113,7 @@ const JudgeRegister = () => {
     </div>
     :
     <form
-      className="w-full bg-tertiary p-4 sm:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6"
+      className="w-full bg-tertiary p-4 sm:p-10 grid grid-cols-1 sm:grid-cols-2 gap-8"
       onSubmit={handleSubmit}
     > 
       {/* Event Name */}
@@ -206,7 +220,7 @@ const JudgeRegister = () => {
 
       {/* Experience */}
       <div className="">
-        <Label htmlFor="exp" required>Industry Experience</Label>
+        <Label htmlFor="exp" required>Industry Experience (in years)</Label>
         <Input
           id="exp"
           name="exp"
@@ -224,6 +238,8 @@ const JudgeRegister = () => {
         <Input
           id="min_projects"
           name="min_projects"
+          min="5"
+          type='number'
           value={formData.min_projects}
           onChange={handleChange}
           validate={validate_isEmpty.bool}

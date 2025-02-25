@@ -58,7 +58,7 @@ const JudgeProfile = () => {
         <p className="text-orange-100 font-semibold">Domains:</p>
         <p className="font-bold flex flex-wrap gap-2">
           {judgeData?.domains?.map((domain, index) => (
-            <span key={index} className="bg-slate-800 px-2 rounded-sm">{index === 0 ? "" : ", "}{domain}</span>
+            <span key={index} className="bg-slate-800 px-2 rounded-sm">{domain}</span>
           ))}
         </p>
       </div>
