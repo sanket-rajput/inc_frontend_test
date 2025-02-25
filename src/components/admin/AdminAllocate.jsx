@@ -143,8 +143,8 @@ const judgeColumns = [
   { 
     field: 'allocated_projects', 
     headerName: 'Allocated', 
-    minWidth: 150, 
-    flex: 1,
+    minWidth: 50,
+    flex: 1, 
     valueGetter: (params) => {
       return params ? params.split(',').length : 0;
     },
@@ -152,8 +152,8 @@ const judgeColumns = [
   {
     field: 'total_judged', 
     headerName: 'Total Judged', 
-    minWidth: 150, 
-    flex: 1,
+    minWidth: 50,
+    flex: 1, 
     valueGetter: (params) => {
       return params ? params.split(',').length : 0;
     },
@@ -161,6 +161,16 @@ const judgeColumns = [
   { 
     field: 'slots', 
     headerName: 'Slots', 
+    minWidth: 50,
+    flex: 1, 
+    sortable: false,
+    valueGetter: (params) => {
+      return `${JSON.stringify(params)}`;
+    },
+  },
+  { 
+    field: 'domains', 
+    headerName: 'Domains', 
     minWidth: 150, 
     flex: 1,
     sortable: false,

@@ -2,7 +2,7 @@ const impetus_domains = [
 	{ value: "", label: "Select Option" },
 	{ value: "AD", label: "Application Development (AD)" },
 	{ value: "CN", label: "Communication Networks and Security Systems (CN)" },
-	{ value: "DSP", label: "Digital / Image/ Speech / Video Processing (DSP)" },
+	{ value: "DSP", label: "Digital / Image/ Speech / Video Processing (DS)" },
 	{ value: "ES", label: "Embedded/VLSI Systems (ES)" },
 	{ value: "ML", label: "Machine Learning and Pattern Recognition (ML)" },
 	{ value: "OT", label: "Other (OT)" },
@@ -51,12 +51,11 @@ const yesNoOptions = [
 ];
 
 const judgingSlots = [
-  { value: "1", label: "Friday 5th April (10:00 AM - 1:00 PM)" },
-  { value: "2", label: "Friday 5th April (2:00 PM - 5:00 PM)" },
-  { value: "3", label: "Friday 5th April (5:00 PM - 7:00 PM)" },
-  { value: "4", label: "Saturday 6th April (10:00 AM - 01:00 PM)" },
-  { value: "5", label: "Saturday 6th April (2:00 PM - 5:00 PM)" },
-  { value: "6", label: "Saturday 6th April (5:00 PM - 7:00 PM)" },
+  { value: "1", label: "Friday, 21st March (11:00 AM - 2:00 PM)" },
+  { value: "2", label: "Friday, 21st March (2:00 PM - 7:00 PM)"},
+  { value: "3", label: "Saturday, 22nd March (10:00 AM - 1:00 PM)" },
+  { value: "4", label: "Saturday, 22nd March (1:00 PM - 4:00 PM)" },
+  { value: "5", label: "Saturday, 22nd March (4:00 PM - 7:00 PM)" },
 ];
 
 export { impetus_domains, yearOptions, localityOptions, modeOptions, yesNoOptions, yearOptionsConcepts, nova_domains, yearOptionsNova, judgingSlots, }

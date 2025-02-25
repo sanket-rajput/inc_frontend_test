@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = JSON.parse(window.sessionStorage.getItem('admin_data')) || { username: '', roles: [], isAuthenticated: false, jid: '' }
+const initialState = JSON.parse(window.sessionStorage.getItem('admin_data')) || JSON.parse(window.sessionStorage.getItem('judge_data')) || { username: '', roles: [], isAuthenticated: false, jid: '' }
 
 export const authSlice = createSlice({
   name: 'auth',
