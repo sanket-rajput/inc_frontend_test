@@ -3,17 +3,18 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import FormButton from "./FormButton";
 
+import { impetus, concepts } from "../../assets";
+
 import { validate_isEmpty, validate_email, validate_phone, validateJudgeForm } from "./utils";
-import { impetus_domains, judgingSlots, yesNoOptions } from "./constants";
+import { impetus_domains, getJudgingSlots, yesNoOptions } from "./constants";
 import { toast } from "react-toastify";
 
 import scrollToTop from "../../utils/scrollToTop";
 import { formatPhoneNumber } from "./utils";
 import { RadioButton } from "../ui/RadioButton";
-import { Select } from "../ui/select";
 import { useProcessJudgeRegisterMutation } from "../../app/services/judgeAPI";
 import { IconCircleCheck } from "@tabler/icons-react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const initialState = {
   'events': 'impetus',
@@ -35,6 +36,7 @@ const JudgeRegister = () => {
 
   const [ formData, setFormData ] = useState(initialState)
   const [searchParams] = useSearchParams();
+  const { event_name } = useParams();
   const [phone, setPhone] = useState("");
   const [ processJudgeRegister, { isLoading, isSuccess } ] = useProcessJudgeRegisterMutation();
 
@@ -43,6 +45,10 @@ const JudgeRegister = () => {
     if(!searchParams.get('URLAccessCode')){
       toast.info('URL Access Code missing in query param');
     }
+    setFormData({
+      ...formData,
+      events: event_name,
+    });
   }, [])
   
   const handleChange = (e) => {
@@ -79,7 +85,10 @@ const JudgeRegister = () => {
     try{
       const tempData = { ...formData, accessCode: searchParams.get('URLAccessCode') };
       const data = await processJudgeRegister(tempData).unwrap();
-      if(data?.success) toast.success('Registered Successfully');
+      if(data?.success){
+        scrollToTop();
+        toast.success('Registered Successfully');
+      }
       else toast.info('Unable to register');
     }
     catch(error){
@@ -94,13 +103,14 @@ const JudgeRegister = () => {
 		>
 			<span className="absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100"></span>
 
-			<div className="w-full sm:px-6 sm:py-4 max-sm:px-2 p-4 flex flex-col sm:flex-row max-sm:items-center gap-6 sm:gap-8 bg-tertiary relative">
+			<div className="w-full sm:px-6 p-4 flex flex-col sm:flex-row max-sm:items-center gap-6 sm:gap-8 bg-tertiary relative">
 				<div className="flex max-sm:flex-col justify-between max-sm:gap-4 w-full">
-				<div className='flex flex-col items-center sm:items-start justify-center gap-2 sm:flex-[0.8]'>
+				<div className='flex max-sm:flex-col items-center gap-8 sm:flex-[0.8]'>
+          <img src={event_name === 'impetus' ? impetus : concepts} alt="event logo" className="w-[120px] sm:w-[180px] sm:pr-8 sm:border-r-[1px]" />
 					<h1 className="font-bold text-3xl">{`Registering as a Judge for ${formData.events[0]?.toUpperCase() + formData.events?.slice(1)}`}</h1>
 				</div>
 				</div>
-			</div>	
+			</div>
 		</div>
     <div className="bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 w-full max-w-7xl mx-auto p-px">
     {isSuccess ? 
@@ -116,24 +126,6 @@ const JudgeRegister = () => {
       className="w-full bg-tertiary p-4 sm:p-10 grid grid-cols-1 sm:grid-cols-2 gap-8"
       onSubmit={handleSubmit}
     > 
-      {/* Event Name */}
-      <div>
-        <Label htmlFor="events"  required>Event Name</Label>
-        <Select
-          options={[
-            { value: "", label: "Select Event Name" },
-            { value: "impetus", label: "Impetus" },
-            { value: "concepts", label: "Concepts" },
-          ]}
-          value={formData.events}
-          onChange={handleChange}
-          validate={validate_isEmpty.bool}
-          errorMessage={validate_isEmpty.message()}
-          id="events"
-          name="events"
-        />
-      </div>
-
       {/* Name */}
       <div className="">
         <Label htmlFor="name" required>Full Name</Label>
@@ -257,7 +249,7 @@ const JudgeRegister = () => {
       {/* Select Slot(s) for Judging */}
       <div className="sm:col-span-2">
         <Label htmlFor="min_projects" required>Select Slot(s) for Judging</Label>
-        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={judgingSlots} error={initialState.domains} required />
+        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={getJudgingSlots(event_name)} error={initialState.domains} required />
       </div>
 
       {/* Are you a PICT Alumini? */}
