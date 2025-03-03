@@ -6,6 +6,8 @@ import {
     techfiesta,
     img1,
     csi, intangles, eq, imocha, pasc, pisb, marketcast,
+    cloudhedge,
+    fold_health,
   } from "../assets";
 
   const notifications = ["🚀 Don’t just watch innovation—be part of it! Register today! 🚀", "⚡ Code, create, and conquer—your journey begins here. ⚡"]
@@ -102,6 +104,10 @@ import {
       name: 'eq',},
     ],
     co: [
+      {src: cloudhedge,
+        name: 'cloudhedge',
+      },
+
       {src: intangles,
       name: 'intangles',},
 
@@ -110,6 +116,16 @@ import {
 
       {src: marketcast,
       name: 'marketcast',
+      },
+    ],
+    pradnya: [
+      {src: cloudhedge,
+        name: 'cloudhedge',
+      },
+    ],
+    other: [
+      {src: fold_health,
+        name: 'fold_health',
       },
     ],
     association: [
