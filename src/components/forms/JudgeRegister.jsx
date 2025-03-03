@@ -3,8 +3,10 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import FormButton from "./FormButton";
 
+import { impetus, concepts } from "../../assets";
+
 import { validate_isEmpty, validate_email, validate_phone, validateJudgeForm } from "./utils";
-import { impetus_domains, judgingSlotsConcepts, judgingSlotsImpetus, yesNoOptions } from "./constants";
+import { impetus_domains, getJudgingSlots, yesNoOptions } from "./constants";
 import { toast } from "react-toastify";
 
 import scrollToTop from "../../utils/scrollToTop";
@@ -83,7 +85,10 @@ const JudgeRegister = () => {
     try{
       const tempData = { ...formData, accessCode: searchParams.get('URLAccessCode') };
       const data = await processJudgeRegister(tempData).unwrap();
-      if(data?.success) toast.success('Registered Successfully');
+      if(data?.success){
+        scrollToTop();
+        toast.success('Registered Successfully');
+      }
       else toast.info('Unable to register');
     }
     catch(error){
@@ -98,13 +103,14 @@ const JudgeRegister = () => {
 		>
 			<span className="absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100"></span>
 
-			<div className="w-full sm:px-6 sm:py-4 max-sm:px-2 p-4 flex flex-col sm:flex-row max-sm:items-center gap-6 sm:gap-8 bg-tertiary relative">
+			<div className="w-full sm:px-6 p-4 flex flex-col sm:flex-row max-sm:items-center gap-6 sm:gap-8 bg-tertiary relative">
 				<div className="flex max-sm:flex-col justify-between max-sm:gap-4 w-full">
-				<div className='flex flex-col items-center sm:items-start justify-center gap-2 sm:flex-[0.8]'>
+				<div className='flex max-sm:flex-col items-center gap-8 sm:flex-[0.8]'>
+          <img src={event_name === 'impetus' ? impetus : concepts} alt="event logo" className="w-[120px] sm:w-[180px] sm:pr-8 sm:border-r-[1px]" />
 					<h1 className="font-bold text-3xl">{`Registering as a Judge for ${formData.events[0]?.toUpperCase() + formData.events?.slice(1)}`}</h1>
 				</div>
 				</div>
-			</div>	
+			</div>
 		</div>
     <div className="bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 w-full max-w-7xl mx-auto p-px">
     {isSuccess ? 
@@ -243,7 +249,7 @@ const JudgeRegister = () => {
       {/* Select Slot(s) for Judging */}
       <div className="sm:col-span-2">
         <Label htmlFor="min_projects" required>Select Slot(s) for Judging</Label>
-        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={event_name === 'impetus' ? judgingSlotsImpetus : judgingSlotsConcepts} error={initialState.domains} required />
+        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={getJudgingSlots(event_name)} error={initialState.domains} required />
       </div>
 
       {/* Are you a PICT Alumini? */}

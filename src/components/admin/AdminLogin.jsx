@@ -66,7 +66,7 @@ const AdminLogin = () => {
             />
           </div>
 
-          <FormButton loading={isLoading} className={`disabled:opacity-80`} />
+          <FormButton loading={isLoading} className={`disabled:opacity-80`} text={`Login`} />
         </form>
       </div>
     </section>

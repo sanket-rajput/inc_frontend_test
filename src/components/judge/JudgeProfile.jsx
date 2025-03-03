@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { judgingSlots as slots } from "../forms/constants";
+import { getJudgingSlots } from "../forms/constants";
 import { useGetJudgeQuery } from "../../app/services/judgeAPI";
 
 const JudgeProfile = () => {
   const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data"))
   const { data, isSuccess } = useGetJudgeQuery(judge_data.jid);
   const [judgeData, setJudgeData] = useState();
+  const event_name = judge_data?.jid.slice(0, 2).toLowerCase() === 'im' ? 'impetus' : 'concepts';
+  const slots = getJudgingSlots(event_name)
 
   useEffect(() => {
     if(isSuccess){
