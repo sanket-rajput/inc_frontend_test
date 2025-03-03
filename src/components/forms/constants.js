@@ -50,7 +50,7 @@ const yesNoOptions = [
 	{ value: "0", label: "No" }
 ];
 
-const judgingSlots = [
+const judgingSlotsImpetus = [
   { value: "1", label: "Friday, 21st March (11:00 AM - 2:00 PM)" },
   { value: "2", label: "Friday, 21st March (2:00 PM - 7:00 PM)"},
   { value: "3", label: "Saturday, 22nd March (10:00 AM - 1:00 PM)" },
@@ -58,4 +58,12 @@ const judgingSlots = [
   { value: "5", label: "Saturday, 22nd March (4:00 PM - 7:00 PM)" },
 ];
 
-export { impetus_domains, yearOptions, localityOptions, modeOptions, yesNoOptions, yearOptionsConcepts, nova_domains, yearOptionsNova, judgingSlots, }
+const judgingSlotsConcepts = [
+  { value: "1", label: "Friday, 21st March (11:00 AM - 2:00 PM)" },
+  { value: "2", label: "Friday, 21st March (2:00 PM - 7:00 PM)"},
+  { value: "3", label: "Saturday, 22nd March (10:00 AM - 1:00 PM)" },
+  { value: "4", label: "Saturday, 22nd March (1:00 PM - 4:00 PM)" },
+  { value: "5", label: "Saturday, 22nd March (4:00 PM - 6:00 PM)" },
+];
+
+export { impetus_domains, yearOptions, localityOptions, modeOptions, yesNoOptions, yearOptionsConcepts, nova_domains, yearOptionsNova, judgingSlotsImpetus, judgingSlotsConcepts, }

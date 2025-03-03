@@ -4,16 +4,15 @@ import { Label } from "../ui/label";
 import FormButton from "./FormButton";
 
 import { validate_isEmpty, validate_email, validate_phone, validateJudgeForm } from "./utils";
-import { impetus_domains, judgingSlots, yesNoOptions } from "./constants";
+import { impetus_domains, judgingSlotsConcepts, judgingSlotsImpetus, yesNoOptions } from "./constants";
 import { toast } from "react-toastify";
 
 import scrollToTop from "../../utils/scrollToTop";
 import { formatPhoneNumber } from "./utils";
 import { RadioButton } from "../ui/RadioButton";
-import { Select } from "../ui/select";
 import { useProcessJudgeRegisterMutation } from "../../app/services/judgeAPI";
 import { IconCircleCheck } from "@tabler/icons-react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const initialState = {
   'events': 'impetus',
@@ -35,6 +34,7 @@ const JudgeRegister = () => {
 
   const [ formData, setFormData ] = useState(initialState)
   const [searchParams] = useSearchParams();
+  const { event_name } = useParams();
   const [phone, setPhone] = useState("");
   const [ processJudgeRegister, { isLoading, isSuccess } ] = useProcessJudgeRegisterMutation();
 
@@ -43,6 +43,10 @@ const JudgeRegister = () => {
     if(!searchParams.get('URLAccessCode')){
       toast.info('URL Access Code missing in query param');
     }
+    setFormData({
+      ...formData,
+      events: event_name,
+    });
   }, [])
   
   const handleChange = (e) => {
@@ -116,24 +120,6 @@ const JudgeRegister = () => {
       className="w-full bg-tertiary p-4 sm:p-10 grid grid-cols-1 sm:grid-cols-2 gap-8"
       onSubmit={handleSubmit}
     > 
-      {/* Event Name */}
-      <div>
-        <Label htmlFor="events"  required>Event Name</Label>
-        <Select
-          options={[
-            { value: "", label: "Select Event Name" },
-            { value: "impetus", label: "Impetus" },
-            { value: "concepts", label: "Concepts" },
-          ]}
-          value={formData.events}
-          onChange={handleChange}
-          validate={validate_isEmpty.bool}
-          errorMessage={validate_isEmpty.message()}
-          id="events"
-          name="events"
-        />
-      </div>
-
       {/* Name */}
       <div className="">
         <Label htmlFor="name" required>Full Name</Label>
@@ -257,7 +243,7 @@ const JudgeRegister = () => {
       {/* Select Slot(s) for Judging */}
       <div className="sm:col-span-2">
         <Label htmlFor="min_projects" required>Select Slot(s) for Judging</Label>
-        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={judgingSlots} error={initialState.domains} required />
+        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={event_name === 'impetus' ? judgingSlotsImpetus : judgingSlotsConcepts} error={initialState.domains} required />
       </div>
 
       {/* Are you a PICT Alumini? */}

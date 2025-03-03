@@ -45,7 +45,7 @@ const App = () => {
         {/* public routes */}
         <Route index element={<><Hero /><About /><Events /><AnimatedCounter /><Sponsors /><Notification /></>} />
         <Route path="/register" element={<RegisterHome />} />
-        <Route path="/register/judge" element={<JudgeRegister />} />
+        <Route path="/register/judge/:event_name" element={<JudgeRegister />} />
         <Route path={`/register/:event`} element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><Register /></Suspense>} />
         <Route path="/events/:id" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><EventDetails /></Suspense>} />
         <Route path="/committee/:id" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><Committee /></Suspense>} />
