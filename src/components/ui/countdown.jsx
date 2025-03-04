@@ -1,18 +1,22 @@
 import { useAnimate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { FlipWords } from "./flip-words";
 
 // NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "2025-03-21";
+const COUNTDOWN_FROM = "2025-03-06";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 
+
+
 const ShiftingCountdown = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const words = ["Last chance to register!", "Secure your spot now!", "Don't wait, register now!", "Deadline approaching soon!"];
 
   // console.log('loaded', isLoaded, ' animated', hasAnimated)
 
@@ -37,11 +41,12 @@ const ShiftingCountdown = () => {
       variants={animationVariants}
       transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
       onAnimationComplete={() => setHasAnimated(false)}
-      className={`w-full max-sm:hidden z-20`}
-    >
+      className={`w-full max-sm:hidden z-2 pb-6`}
+      >
+      {isLoaded && <FlipWords words={words} />}
       <div className={"border-secondary border-[1px]"}>
         <div className={`mx-auto flex w-full max-w-5xl items-center ${hasAnimated ? `backdrop-blur-sm` : `bg-[#000609]/50`}`}>
-          <CountdownItem unit="Day" text="days" cn={"border-r-[1px]"} />
+          <CountdownItem unit="Day" text="day" cn={"border-r-[1px]"} />
           <CountdownItem unit="Hour" text="hours" cn={"border-r-[1px]"} />
           <CountdownItem unit="Minute" text="minutes" cn={"border-r-[1px]"} />
           <CountdownItem unit="Second" text="seconds" />

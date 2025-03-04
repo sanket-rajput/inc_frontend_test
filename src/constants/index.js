@@ -104,18 +104,18 @@ import {
       name: 'eq',},
     ],
     co: [
-      {src: cloudhedge,
-        name: 'cloudhedge',
-      },
-
-      {src: intangles,
-      name: 'intangles',},
-
       {src: imocha,
       name: 'imocha',},
 
       {src: marketcast,
       name: 'marketcast',
+      },
+
+      {src: intangles,
+      name: 'intangles',},
+
+      {src: cloudhedge,
+        name: 'cloudhedge',
       },
     ],
     pradnya: [
