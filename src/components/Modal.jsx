@@ -78,7 +78,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
-										<span className="text-white">Hurry up! Registrations close on March 5 at 11:59 PM IST. Don't miss out!</span>
+										<span className="text-white">Hurry up! Registrations close on March 5 at 11:59 PM IST. Don&apos;t miss out!</span>
 									</li>
 									<li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">
