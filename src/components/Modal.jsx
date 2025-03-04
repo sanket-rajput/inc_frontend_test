@@ -22,6 +22,13 @@ const ExampleWrapper = () => {
 			<span className="relative z-10 block p-3 sm:p-4 rounded-full bg-gray-950">
 				<img loading='lazy'  src={notification} alt="notification"/>
 			</span>
+			<div className="absolute w-6 h-6 top-0 right-0 z-10">
+				<span className="absolute top-0 right-0 w-4 h-4 bg-red-600 rounded-full opacity-75 animate-ping"></span>
+
+				<span className="absolute top-0 right-0 w-4 h-4 border-2 border-red-600 rounded-full"></span>
+
+				<span className="absolute top-1 right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+			</div>
 			</button>
 			<SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
 		</div>
@@ -66,8 +73,19 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 								<h3 className="text-xl font-bold text-center mb-2">
 									Latest Notifications
 								</h3>
-								<ul className="my-4">
-									<li className="text-red-600 flex items-center gap-2"><IconCircleFilled /> <span className="text-white-100">Registrations are Live.</span></li>
+								<ul className="my-4 flex flex-col gap-2">
+									<li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Hurry up! Registrations close on March 5 at 11:59 PM IST. Don't miss out!</span>
+									</li>
+									<li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Registrations are Live.</span>
+									</li>
 								</ul>
 								<div className="flex gap-2">
 									<button
