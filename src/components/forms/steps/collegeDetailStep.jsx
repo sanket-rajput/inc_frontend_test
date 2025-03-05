@@ -52,6 +52,7 @@ const restrictedColleges = [
   "pict",
 ];
 
+
 const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
   const step3 = useSelector(state => state.form.step3)
   const [formData, setFormData] = useState({...step3});
