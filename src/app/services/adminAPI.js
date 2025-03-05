@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseURL = ("https://api.pictinc.org") + "/events";
 // const baseURL = "http://localhost:3001/events";
 
-
 export const adminAPI = createApi({
     reducerPath: "admins",
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
@@ -63,4 +62,3 @@ export const adminAPI = createApi({
 
 
 export const { useLazyGetRegistrationsCountQuery, useLazyGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useLazyGetIncompleteRegistrationsQuery, } = adminAPI
-

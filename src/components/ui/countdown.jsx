@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FlipWords } from "./flip-words";
 
 // NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "2025-03-06";
+const COUNTDOWN_FROM = "2025-03-05T23:59:00+05:30";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
