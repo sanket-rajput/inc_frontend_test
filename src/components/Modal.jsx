@@ -74,12 +74,12 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 									Latest Notifications
 								</h3>
 								<ul className="my-4 flex flex-col gap-2">
-									<li className="text-red-600 flex items-center gap-2">
+									{/* <li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
 										<span className="text-white">Impetus Registrations are now closed for PICT students.</span>
-									</li>
+									</li> */}
 									<li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />

@@ -43,14 +43,14 @@ const initialState = {
   referral: "",
 }
 
-const restrictedColleges = [
-  "sctrs pune institute of computer technology",
-  "sctr pune institute of computer technology",
-  "pune institute of computer technology",
-  "sctrs pict",
-  "sctr pict",
-  "pict",
-];
+// const restrictedColleges = [
+//   "sctrs pune institute of computer technology",
+//   "sctr pune institute of computer technology",
+//   "pune institute of computer technology",
+//   "sctrs pict",
+//   "sctr pict",
+//   "pict",
+// ];
 
 const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
   const step3 = useSelector(state => state.form.step3)
@@ -85,19 +85,19 @@ const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
       .trim();
   };
 
-  const checkForPICTImpetus = (inputValue) => {
-    if(event === "impetus" && (formData.isPICT === "1" || restrictedColleges.some((name) => normalizeInput(inputValue).startsWith(normalizeInput(name))))){
-      return true;
-    }
-    return false;
-  }
+  // const checkForPICTImpetus = (inputValue) => {
+  //   if(event === "impetus" && (formData.isPICT === "1" || restrictedColleges.some((name) => normalizeInput(inputValue).startsWith(normalizeInput(name))))){
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(checkForPICTImpetus(formData.college)){
-      toast.info("Registrations closed for PICT.")
-      return;
-    }
+    // if(checkForPICTImpetus(formData.college)){
+    //   toast.info("Registrations closed for PICT.")
+    //   return;
+    // }
     if(event === "concepts"){
       setFormData((prev) => ({...prev, year: "BE"}));
     }
