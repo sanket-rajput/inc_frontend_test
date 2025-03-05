@@ -16,21 +16,28 @@ const DAY = HOUR * 24;
 const ShiftingCountdown = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showFlipWords, setShowFlipWords] = useState(false);
   const words = ["Last chance to register!", "Secure your spot now!", "Don't wait, register now!", "Deadline approaching soon!"];
-
+  
   // console.log('loaded', isLoaded, ' animated', hasAnimated)
-
+  
   useEffect(() => {
     const hasTimerAnimated = window.sessionStorage.getItem("hasTimerAnimated");
     if (!hasTimerAnimated) {
       setHasAnimated(true);
+      setTimeout(() => {
+        setShowFlipWords(true);
+      }, 3000);
       sessionStorage.setItem("hasTimerAnimated", true);
+    }
+    else{
+      setShowFlipWords(true);
     }
     setIsLoaded(true);
   }, []);
 
   const animationVariants = {
-    initial: { scale: 2, x: "-70%", y: "-150%" },
+    initial: { scale: 2, x: "-70%", y: "-120%" },
     animate: { scale: 1, x: 0, y: 0 },
   };
 
@@ -43,7 +50,7 @@ const ShiftingCountdown = () => {
       onAnimationComplete={() => setHasAnimated(false)}
       className={`w-full max-sm:hidden z-2 pb-6`}
       >
-      {isLoaded && <FlipWords words={words} />}
+      {showFlipWords && <FlipWords words={words} />}
       <div className={"border-secondary border-[1px]"}>
         <div className={`mx-auto flex w-full max-w-5xl items-center ${hasAnimated ? `backdrop-blur-sm` : `bg-[#000609]/50`}`}>
           <CountdownItem unit="Day" text="day" cn={"border-r-[1px]"} />
