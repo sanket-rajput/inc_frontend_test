@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// const baseURL = ("https://api.pictinc.org") + "/judge";
-const baseURL = "http://localhost:3001/judge";
+const baseURL = ("https://api.pictinc.org") + "/judge";
+// const baseURL = "http://localhost:3001/judge";
 
 
 export const judgeAPI = createApi({
