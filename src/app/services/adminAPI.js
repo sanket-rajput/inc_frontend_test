@@ -62,3 +62,4 @@ export const adminAPI = createApi({
 
 
 export const { useLazyGetRegistrationsCountQuery, useLazyGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useLazyGetIncompleteRegistrationsQuery, } = adminAPI
+
