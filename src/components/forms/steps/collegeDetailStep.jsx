@@ -78,12 +78,12 @@ const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const normalizeInput = (input) => {
-    return input
-      .toLowerCase()
-      .replace(/[^a-z0-9 ]/g, "")
-      .trim();
-  };
+  // const normalizeInput = (input) => {
+  //   return input
+  //     .toLowerCase()
+  //     .replace(/[^a-z0-9 ]/g, "")
+  //     .trim();
+  // };
 
   // const checkForPICTImpetus = (inputValue) => {
   //   if(event === "impetus" && (formData.isPICT === "1" || restrictedColleges.some((name) => normalizeInput(inputValue).startsWith(normalizeInput(name))))){
