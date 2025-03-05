@@ -8,7 +8,7 @@ import StepProgressBar from "./forms/stepProgress";
 import { useParams } from "react-router-dom";
 import { eventsData } from "../constants";
 import { qr } from "../assets";
-import { IconUserCancel } from "@tabler/icons-react";
+// import { IconUserCancel } from "@tabler/icons-react";
 
 const osteps = [
   { id: 1, label: "Project Details" },
@@ -64,7 +64,7 @@ const Register = () => {
         <div
           className="mt-8"
           >
-          {event === 'impetus' && <p className="text-center text-red-500 font-bold flex items-center justify-center gap-2"><IconUserCancel /> <span>Registrations closed for PICT students.</span></p>}
+          {/* {event === 'impetus' && <p className="text-center text-red-500 font-bold flex items-center justify-center gap-2"><IconUserCancel /> <span>Registrations closed for PICT students.</span></p>} */}
           {currentStep === 0 && ( 
             <GradientWrapper>
               <ProjectDetailsFormStep event={event} nextStep={nextStep} prevStep={prevStep} />
