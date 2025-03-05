@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FlipWords } from "./flip-words";
 
 // NOTE: Change this date to whatever date you want to countdown to :)
-const COUNTDOWN_FROM = "2025-03-05T23:59:00+05:30";
+const COUNTDOWN_FROM = "2025-03-20T23:59:00+05:30";
 
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -17,8 +17,8 @@ const ShiftingCountdown = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [showFlipWords, setShowFlipWords] = useState(false);
-  const words = ["Last chance to register!", "Secure your spot now!", "Don't wait, register now!", "Deadline approaching soon!"];
-  
+  const words = ["Counting down to launch!", "We're going live on 21st March!", "Get ready for an exciting experience!", "Join us as the event unfolds!"];
+
   // console.log('loaded', isLoaded, ' animated', hasAnimated)
   
   useEffect(() => {

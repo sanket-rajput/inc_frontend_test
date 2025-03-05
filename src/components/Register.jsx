@@ -8,7 +8,7 @@ import StepProgressBar from "./forms/stepProgress";
 import { useParams } from "react-router-dom";
 import { eventsData } from "../constants";
 import { qr } from "../assets";
-import { IconUserCancel } from "@tabler/icons-react";
+import { IconAlertCircle, IconMessageCircle, IconUserCancel } from "@tabler/icons-react";
 
 const osteps = [
   { id: 1, label: "Project Details" },
@@ -58,19 +58,23 @@ const Register = () => {
 
       <div className="container mx-auto px-2 pb-16">
         {/* New Progress Bar Component */}
-        <StepProgressBar steps={steps} currentStep={(event === 'pradnya') ? currentStep - 1 : currentStep} />
+        {event === 'concepts' && <StepProgressBar steps={steps} currentStep={(event === 'pradnya') ? currentStep - 1 : currentStep} />}
 
         {/* Step Content */}
         <div
           className="mt-8"
           >
-          {event === 'impetus' && <p className="text-center text-red-500 font-bold flex items-center justify-center gap-2"><IconUserCancel /> <span>Registrations closed for PICT students.</span></p>}
-          {currentStep === 0 && ( 
+
+          {event === 'impetus' && <EventCloseMessage event_name={'Impetus'} />}
+          {event === 'pradnya' && <EventCloseMessage event_name={'Pradnya'} />}
+
+          {event === 'concepts' && <p className="text-center text-red-500 font-bold flex items-center justify-center gap-2"><IconUserCancel /> <span>Registration closed for PICT students.</span></p>}
+          {currentStep === 0 && event === 'concepts' && ( 
             <GradientWrapper>
               <ProjectDetailsFormStep event={event} nextStep={nextStep} prevStep={prevStep} />
             </GradientWrapper>
           )}
-          {currentStep === 1 && (
+          {currentStep === 1 && event === 'concepts' && (
             <GradientWrapper>
               <AddMemberStep
                 event={event}
@@ -82,12 +86,12 @@ const Register = () => {
               />
             </GradientWrapper>
           )}
-          {currentStep === 2 && (
+          {currentStep === 2 && event === 'concepts' && (
             <GradientWrapper>
               <CollegeDetailsStep event={event} nextStep={nextStep} prevStep={prevStep} />
             </GradientWrapper>
           )}
-          {currentStep === 3 && (
+          {currentStep === 3 && event === 'concepts' && (
             <GradientWrapper>
               <PaymentStep
                 event={event}
@@ -112,3 +116,26 @@ const GradientWrapper = ({ children }) => {
     </div>
   )
 }
+
+const EventCloseMessage = ({ event_name }) => {
+  return (
+    <div className="max-w-7xl mx-auto bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-px">
+      <div className="bg-tertiary text-white text-center p-4">
+        <h2 className="text-lg sm:text-xl font-bold flex items-center justify-center gap-1 text-secondary">
+          <IconAlertCircle size={20}/> Registration Update - {event_name}
+        </h2>
+        <p className="mt-2 sm:text-lg">
+          Registrations for <span className="font-semibold">{event_name}</span> are now officially 
+          <span className="font-bold text-red-600"> CLOSED!</span>
+        </p>
+        <p className="mt-1 text-sm sm:text-base text-slate-400">
+          Thank you for the overwhelming response. Stay tuned for further updates, and we look forward 
+          to seeing you at the event!
+        </p>
+        <p className="mt-2 text-sm italic flex items-center justify-center gap-1 text-orange-100">
+          <IconMessageCircle size={18} /> For any queries, feel free to reach out.
+        </p>
+      </div>
+    </div>
+  );
+};

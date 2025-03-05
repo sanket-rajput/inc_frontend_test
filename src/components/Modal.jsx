@@ -46,7 +46,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 					onClick={() => {
 						setIsOpen(false)
 					}}
-					className="bg-slate-900/20 backdrop-blur sm:p-8 p-2 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+					className="bg-slate-900/20 backdrop-blur sm:p-8 p-2 fixed inset-0 z-50 grid place-items-center cursor-pointer"
 				>
 					<motion.div
 						initial={{ scale: 0 }}
@@ -56,20 +56,20 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 						className="text-white-100 p-px w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
 					>	
 						<span className="absolute bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 inset-0"></span>
-						<div className="relative bg-tertiary p-4">
-							<div className="relative z-10 mb-4 overflow-hidden">
-							<InfiniteLoopSlider
-							duration={25000}
-							>
-								{
-									notifications.map((noti) => (
-										<li key={noti} className="mr-10 rounded-xl text-nowrap whitespace-nowrap w-fit px-2">
-											{noti}
-										</li>
-									))
-								}
-							</InfiniteLoopSlider>
-							</div>
+						<div className="relative bg-tertiary p-4 max-h-[500px] overflow-y-scroll">
+								<div className="relative z-10 mb-4 overflow-hidden">
+								<InfiniteLoopSlider
+								duration={25000}
+								>
+									{
+										notifications.map((noti) => (
+											<li key={noti} className="mr-10 rounded-xl text-nowrap whitespace-nowrap w-fit px-2">
+												{noti}
+											</li>
+										))
+									}
+								</InfiniteLoopSlider>
+								</div>
 								<h3 className="text-xl font-bold text-center mb-2">
 									Latest Notifications
 								</h3>
@@ -78,7 +78,19 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
-										<span className="text-white">Impetus Registrations are now closed for PICT students.</span>
+										<span className="text-white">Registrations for Concepts are now closed for PICT students.</span>
+									</li>
+									<li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Registrations for Pradnya are now officially closed.</span>
+									</li>
+									<li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Registrations for Impetus are now officially closed.</span>
 									</li>
 									<li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">

@@ -85,8 +85,8 @@ const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
       .trim();
   };
 
-  const checkForPICTImpetus = (inputValue) => {
-    if(event === "impetus" && (formData.isPICT === "1" || restrictedColleges.some((name) => normalizeInput(inputValue).startsWith(normalizeInput(name))))){
+  const checkForPICTConcepts = (inputValue) => {
+    if(event === "concepts" && (formData.isPICT === "1" || restrictedColleges.some((name) => normalizeInput(inputValue).startsWith(normalizeInput(name))))){
       return true;
     }
     return false;
@@ -94,7 +94,7 @@ const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(checkForPICTImpetus(formData.college)){
+    if(checkForPICTConcepts(formData.college)){
       toast.info("Registrations closed for PICT.")
       return;
     }
