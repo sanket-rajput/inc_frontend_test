@@ -1,44 +1,44 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import FormsBanner from "./forms/formBanner";
 // import ProjectDetailsFormStep from "./forms/steps/projectDetails";
 // import AddMemberStep from "./forms/steps/addMembersStep";
 // import CollegeDetailsStep from "./forms/steps/collegeDetailStep";
 // import PaymentStep from "./forms/steps/paymentStep";
-import StepProgressBar from "./forms/stepProgress";
+// import StepProgressBar from "./forms/stepProgress";
 import { useParams } from "react-router-dom";
 import { eventsData } from "../constants";
 // import { qr } from "../assets";
 import { IconAlertCircle, IconMessageCircle } from "@tabler/icons-react";
 
-const osteps = [
-  { id: 1, label: "Project Details" },
-  { id: 2, label: "Add Members" },
-  { id: 3, label: "College Details" },
-  { id: 4, label: "Payment" },
-];
+// const osteps = [
+//   { id: 1, label: "Project Details" },
+//   { id: 2, label: "Add Members" },
+//   { id: 3, label: "College Details" },
+//   { id: 4, label: "Payment" },
+// ];
 
-const pSteps = [
-  { id: 1, label: "Add Members" },
-  { id: 2, label: "College Details" },
-  { id: 3, label: "Payment" },
-]
+// const pSteps = [
+//   { id: 1, label: "Add Members" },
+//   { id: 2, label: "College Details" },
+//   { id: 3, label: "Payment" },
+// ]
 
 const Register = () => {
   const { event } = useParams()
-  const [currentStep, setCurrentStep] = useState(0);
-  const [steps, setSteps] = useState(osteps)
+  // const [currentStep, setCurrentStep] = useState(0);
+  // const [steps, setSteps] = useState(osteps)
   // const nextStep = () => setCurrentStep((prev) => prev + 1);
   // const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   
-  useEffect(() => {
-    if(event === 'pradnya'){
-      if(currentStep === 0){
-        setCurrentStep(1)
-        setSteps(() => (pSteps))
-      }
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(event === 'pradnya'){
+  //     if(currentStep === 0){
+  //       setCurrentStep(1)
+  //       setSteps(() => (pSteps))
+  //     }
+  //   }
+  // }, [])
   
   const eventData = eventsData[event];
 
