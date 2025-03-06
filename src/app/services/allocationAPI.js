@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseURL = ("https://api.pictinc.org") + "/allocations";
 // const baseURL = "http://localhost:3001/allocations";
 
-
 export const allocationAPI = createApi({
     reducerPath: "allocations",
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),

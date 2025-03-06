@@ -25,11 +25,8 @@ function Events(){
 
   return (
     <>
-    <div
-    
-    className='w-full flex flex-col items-center justify-evenly'>
-      <div 
-      >
+    <div className='w-full flex flex-col items-center justify-evenly'>
+      <div>
         <h2 className={`${styles.sectionHeadText}`}>Events.</h2>
       </div>
       {isMobile ? <SwipeCards events={events} /> : <EventCards />}

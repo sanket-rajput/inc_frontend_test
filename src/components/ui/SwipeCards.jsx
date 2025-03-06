@@ -44,7 +44,7 @@ const CardStack = () => {
 					// console.log(details)
           return (
             <motion.li
-              key={details._id}
+              key={`${details._id}_${details.title}`}
               style={{
                 cursor: canDrag ? "grab" : "auto",
               }}
