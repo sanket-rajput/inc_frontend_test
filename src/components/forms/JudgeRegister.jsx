@@ -15,6 +15,7 @@ import { RadioButton } from "../ui/RadioButton";
 import { useProcessJudgeRegisterMutation } from "../../app/services/judgeAPI";
 import { IconCircleCheck } from "@tabler/icons-react";
 import { useParams, useSearchParams } from "react-router-dom";
+import { eventsData } from "../../constants";
 
 const initialState = {
   'events': 'impetus',
@@ -107,7 +108,10 @@ const JudgeRegister = () => {
 				<div className="flex max-sm:flex-col justify-between max-sm:gap-4 w-full">
 				<div className='flex max-sm:flex-col items-center gap-8 sm:flex-[0.8]'>
           <img src={event_name === 'impetus' ? impetus : concepts} alt="event logo" className="w-[120px] sm:w-[180px] sm:pr-8 sm:border-r-[1px]" />
-					<h1 className="font-bold text-3xl">{`Registering as a Judge for ${formData.events[0]?.toUpperCase() + formData.events?.slice(1)}`}</h1>
+					<div className="flex flex-col gap-2">
+            <h1 className="font-bold text-2xl sm:text-3xl">{`Registering as a Judge for ${formData.events[0]?.toUpperCase() + formData.events?.slice(1)}`}</h1>
+            <p className="text-secondary max-sm:text-sm">{eventsData[event_name]?.short_desc}</p>
+          </div>
 				</div>
 				</div>
 			</div>
