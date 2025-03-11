@@ -23,7 +23,7 @@ const initialState = {
   'email': '',
   'phone': '',
   'company': '',
-  'commercial_address': '',
+  'commercial_address': 'N/A',
   'residential_address': '',
   'exp': '3',
   'domains': [],
@@ -187,7 +187,7 @@ const JudgeRegister = () => {
       </div>
 
       {/* Company/Organization Address */}
-      <div className="sm:col-span-2">
+      {/* <div className="sm:col-span-2">
         <Label htmlFor="commercial_address" required>Company/Organization Address</Label>
         <Input
           id="commercial_address"
@@ -198,11 +198,11 @@ const JudgeRegister = () => {
           errorMessage={validate_isEmpty.message()}
           placeholder="Enter company or organization address"
         />
-      </div>
+      </div> */}
 
       {/* Residential Address */}
       <div className="sm:col-span-2">
-        <Label htmlFor="residential_address" required>Residential Address</Label>
+        <Label htmlFor="residential_address" required>City of Residence</Label>
         <Input
           id="residential_address"
           name="residential_address"
@@ -210,7 +210,7 @@ const JudgeRegister = () => {
           onChange={handleChange}
           validate={validate_isEmpty.bool}
           errorMessage={validate_isEmpty.message()}
-          placeholder="Enter residential address"
+          placeholder="Enter your residence city name"
         />
       </div>
 

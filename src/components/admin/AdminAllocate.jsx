@@ -3,7 +3,7 @@ import { useGetJudgeRegistrationsQuery } from '../../app/services/judgeAPI'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLazyGetVerifiedRegistrationsQuery } from '../../app/services/adminAPI';
 import { toast } from 'react-toastify';
-import { DataGrid, useGridApiRef } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar, useGridApiRef } from '@mui/x-data-grid';
 import FormButton from '../forms/FormButton';
 import { useAllocateJudgeMutation } from '../../app/services/allocationAPI';
 
@@ -83,7 +83,7 @@ const AdminAllocate = () => {
       <h2 className='font-bold text-3xl'>Allocate Judge to Projects - <span className='text-slate-400'>{event_name}</span></h2>
       <div className='flex justify-between'>
         <div style={{ height: '500px', width: '70%' }}>
-          <DataGrid apiRef={judgeApiRef} rows={judgesData} columns={judgeColumns} loading={isLoadingJudges} initialState={{pagination: { paginationModel: { pageSize: 25 }}}} pageSizeOptions={[25, 50, 100, { value: -1, label: 'All' }]} slots={{ noRowsOverlay: CustomNoResultsOverlay }} disableRowSelectionOnClick checkboxSelection keepNonExistentRowsSelected disableMultipleRowSelection onRowSelectionModelChange={(rowId) => {
+          <DataGrid apiRef={judgeApiRef} rows={judgesData} columns={judgeColumns} loading={isLoadingJudges} initialState={{pagination: { paginationModel: { pageSize: 25 }}}} pageSizeOptions={[25, 50, 100, { value: -1, label: 'All' }]} slots={{ noRowsOverlay: CustomNoResultsOverlay, toolbar: GridToolbar, }} disableRowSelectionOnClick checkboxSelection keepNonExistentRowsSelected disableMultipleRowSelection onRowSelectionModelChange={(rowId) => {
             const allocated_projects = judgesData[rowId]?.allocated_projects?.split(',');
             const filteredResult = allocated_projects ? verifiedData.filter((team) => !allocated_projects.includes(team?.pid)) : verifiedData;
             setVerifiedRegistrations(filteredResult);
@@ -127,7 +127,7 @@ const teamColumns = [
 ];
 
 const judgeColumns = [
-  { field: 'jid', headerName: 'Judge ID', minWidth: 150, flex: 1 },
+  { field: 'jid', headerName: 'Judge ID', minWidth: 120, flex: 1 },
   { 
     field: 'name', 
     headerName: 'Name', 
@@ -137,8 +137,16 @@ const judgeColumns = [
   {
     field: 'phone', 
     headerName: 'Mobile No.', 
+    minWidth: 125,
+    flex: 1,
+    sortable: false,
+  },
+  {
+    field: 'email', 
+    headerName: 'Email', 
     minWidth: 150,
-    flex: 1 
+    flex: 1,
+    sortable: false, 
   },
   { 
     field: 'allocated_projects', 
@@ -177,6 +185,32 @@ const judgeColumns = [
     valueGetter: (params) => {
       return `${JSON.stringify(params)}`;
     },
+  },
+  { 
+    field: 'exp', 
+    headerName: 'Experience', 
+    minWidth: 50, 
+    flex: 1,
+  },
+  { 
+    field: 'residential_address', 
+    headerName: 'Residence City', 
+    minWidth: 150, 
+    flex: 1,
+    sortable: false,
+  },
+  { 
+    field: 'isPICT', 
+    headerName: 'is Alumni', 
+    minWidth: 50, 
+    flex: 1,
+    sortable: false,
+  },
+  { 
+    field: 'min_projects', 
+    headerName: 'Min Projects', 
+    minWidth: 50, 
+    flex: 1,
   },
 ];
 

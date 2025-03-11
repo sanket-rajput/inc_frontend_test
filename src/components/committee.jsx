@@ -4,7 +4,7 @@ import { styles } from '../styles';
 import { faculty, web, core } from '../constants';
 import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
 import { cn } from "../lib/utils";
-// import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
+import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
@@ -74,7 +74,7 @@ const Committee = () => {
 
 
 
-			<div className="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4 sm:gap-8 mt-4 mb-16 w-full bg-primary">
+			<div className="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4 sm:gap-8 mt-4 mb-14 w-full bg-primary">
 				<span className='bg-gradient-to-l from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
 				{Object.keys(committees).map((committee) => (
 					<button
@@ -111,15 +111,18 @@ const Committee = () => {
 				<span className='bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
 			</div>
 
-			<h3 className='text-3xl capitalize font-bold mb-10'>
+			<h3 className='text-3xl capitalize font-bold mb-16'>
 				{activeCommittee}&nbsp;Committee
 			</h3>
 
-			<div className='w-full max-w-[90rem] bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-px'>
-				<div className='bg-tertiary md:p-8 px-4 py-8 max-sm:px-2'>
-					{activeCommittee === 'faculty' && <Faculty data={committees[activeCommittee]} />}
-					{activeCommittee !== 'faculty' && <StayTuned data={committees[activeCommittee]} />}
-				</div>
+			<div className='w-full max-w-[90rem] max-sm:px-2'>
+					{activeCommittee === 'faculty' && <div className='w-full bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-px'>
+						<div className='bg-tertiary md:p-8 px-4 py-8 max-sm:px-2'>
+							<Faculty data={committees[activeCommittee]} />
+						</div>
+					</div>}
+					{activeCommittee === 'core' && <WebnCore data={committees[activeCommittee]} />}
+					{activeCommittee === 'web' && <WebnCore data={committees[activeCommittee]} />}
 			</div>
 		</section>
 		:
@@ -149,7 +152,7 @@ const Faculty = ({ data: faculty }) => {
 		</Accordion>
 	)
 }
-/*
+
 const WebnCore = ({ data }) => {
 
 	const handleLinkClick = (link) => {
@@ -159,33 +162,34 @@ const WebnCore = ({ data }) => {
 	// console.log(data)
 
 	return (
-		<div className='flex flex-col items-center w-full gap-[5rem]'>
+		<div className='flex flex-col items-center w-full gap-[4rem]'>
 			{data.map(team => (
-				<div className='flex flex-col items-center gap-10' key={team.team}>
-					<h3 className='sm:text-3xl text-2xl font-semibold pb-2 border-b-2 border-orange-100'>{team.team}</h3>
+				<div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
+					<div className='bg-tertiary py-14 w-full relative'>
+					<h3 className='sm:text-3xl font-semibold absolute left-[50%] translate-x-[-50%] sm:top-[-6%] -top-5 bg-black-100 border-[1px] border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>{team.team}</h3>
 					<div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
 						{team.members.map(m => (
-							<div className='sm:w-[300px] w-[290px]' key={m.name}>
+							<div className='sm:w-[300px] w-[270px]' key={m.name}>
 								<BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
-									<img loading='lazy' 
+									<img 
+										loading='lazy' 
 										src={m.photo}
 										alt="member"
-										height="180"
-										width="180"
-										className="rounded-full"
+										className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
 									/>
 									<div>
 										<h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
 										<p className='text-sm text-secondary text-center'>{m.post}</p>
 									</div>
 									<div className='flex items-center gap-4'>
-										<IconBrandLinkedinFilled onClick={(e) => handleLinkClick(m.linkedin)} className='cursor-pointer' />
-										<IconBrandGithubFilled onClick={(e) => handleLinkClick(m.linkedin)} className='cursor-pointer' />
-										<IconBrandInstagramFilled onClick={(e) => handleLinkClick(m.linkedin)} className='cursor-pointer' />
+										<IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
+										<IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
+										<IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
 									</div>
 								</BackgroundGradient>
 							</div>
 						))}
+					</div>
 					</div>
 				</div>
 			))}
@@ -193,85 +197,76 @@ const WebnCore = ({ data }) => {
 	)
 
 }
-*/
-const StayTuned = () => {
-
-	return (
-		<h4 className='text-center text-white-100 text-3xl font-bold'>
-			Bootin<span className='text-orange-100'>&apos;</span> up<span className='text-orange-100'>,</span> Stay Tuned<span className='text-orange-100'>!</span>
-		</h4>
-	)
-
-}
-
-
 
 export default Committee;
 
-/*
 const BackgroundGradient = ({
-	children,
-	className,
-	containerClassName,
-	animate = true
+  children,
+  className,
+  containerClassName,
+  animate = true
 }) => {
-	const variants = {
-		initial: {
-			backgroundPosition: "0 50%",
-		},
-		animate: {
-			backgroundPosition: ["0, 50%", "100% 50%", "0 50%"],
-		},
-	};
-	return (
-		(<div className={cn("relative p-[1px] group", containerClassName)}>
-			<motion.div
-				variants={animate ? variants : undefined}
-				initial={animate ? "initial" : undefined}
-				animate={animate ? "animate" : undefined}
-				transition={
-					animate
-						? {
-							duration: 2,
-							repeat: Infinity,
-							repeatType: "reverse",
-						}
-						: undefined
-				}
-				style={{
-					backgroundSize: animate ? "400% 400%" : undefined,
-				}}
-				className={cn(
-					"absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-xl transition duration-500 will-change-transform",
-					" bg-[radial-gradient(circle_farthest-side_at_0_100%,#1746A2,transparent),radial-gradient(circle_farthest-side_at_100%_0,#d4621c,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#d4621c,transparent),radial-gradient(circle_farthest-side_at_0_0,#1746A2,#d4621c)]"
-        
-				)} />
-			<motion.div
-				variants={animate ? variants : undefined}
-				initial={animate ? "initial" : undefined}
-				animate={animate ? "animate" : undefined}
-				transition={
-					animate
-						? {
-							duration: 2,
-							repeat: Infinity,
-							repeatType: "reverse",
-						}
-						: undefined
-				}
-				style={{
-					backgroundSize: animate ? "400% 400%" : undefined,
-				}}
-				className={cn(
-					"absolute inset-0 z-[1] will-change-transform",
-					" bg-[radial-gradient(circle_farthest-side_at_0_100%,#1746A2,transparent),radial-gradient(circle_farthest-side_at_100%_0,#d4621c,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#d4621c,transparent),radial-gradient(circle_farthest-side_at_0_0,#1746A2,#d4621c)]"
-        
-				)} />
-			<div className={cn("relative z-10", className)}>{children}</div>
-		</div>)
-	);
+  const variants = {
+    initial: {
+      backgroundPosition: "0% 50%",
+    },
+    animate: {
+      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+    },
+  };
+  
+  return (
+    <div className={cn("relative p-[1px] group", containerClassName)}>
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? {
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
+      
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? {
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1]",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
+      
+      <div className={cn("relative z-10", className)}>
+        {children}
+      </div>
+    </div>
+  );
 };
-*/
 
 const Spotlight = ({
 	className,

@@ -4,7 +4,6 @@ import {
     concepts,
     pradnya,
     techfiesta,
-    img1,
     csi, intangles, eq, imocha, pasc, pisb, marketcast,
     cloudhedge,
     fold_health,
@@ -511,7 +510,7 @@ import {
       ]
     },
     {
-      value: "Memento Distribution to Judges/Guests",
+      value: "Memento Distribution to Judges/ Guests",
       names: [
         { value: "1. Prof. S. S. Khot (E&TC)" },
         { value: "2. Prof. S A. Barde (BS&E)" },
@@ -614,7 +613,7 @@ import {
       ]
     },
     {
-      value: "Preparation of all relevant Documents/ISO Files",
+      value: "Preparation of all relevant Documents/ ISO Files",
       names: [
         { value: "1. Prof. N. G. Nirmal (E&TC)" },
         { value: "2. Prof. D. M. Shinde (E&TC)" },
@@ -686,7 +685,7 @@ import {
       ]
     },
     {
-      value: "P A System/Telephone/Network/Electrical facilities",
+      value: "P A System/ Telephone/ Network/ Electrical facilities",
       names: [
         { value: "1. Prof. L.P. Patil (Overall Incharge)" },
         { value: "2. Mr. K.S. Ugale (PA System)" },
@@ -729,46 +728,38 @@ import {
 
 const web = [
   {
-    team: 'Support & Guide', members: [
-      { name: 'Abhishek Jadhav', post: 'Support & Guide', email: 'www.abhishek3jadhav@gmail.com', linkedin: 'https://www.linkedin.com/in/AbhishekJadhav2002/', github: 'https://github.com/AbhishekJadhav2002', 
-      photo: img1,
+    team: 'Technical Heads', 
+    members: [
+      {
+        name: "Piyush Dahake",
+        post: "Frontend, Backend, DevOps",
+        linkedin: "https://www.linkedin.com/in/piyush-dahake/",
+        github: "https://github.com/piyush960",
+        instagram: "https://www.instagram.com/piyushdahake_/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741561794/core-committee/kuwhp8dktthlaiflewxx.jpg",
       },
-      { name: 'Manas Kshatriya', post: 'Support & Guide', email: 'manaskshatriya01@gmail.com', linkedin: 'https://www.linkedin.com/in/manas-kshatriya/', github: 'https://github.com/manaskshatriya', 
-      photo: img1,
-      }
+      {
+        name: "Prathamesh Malu",
+        post: "Frontend, Backend, DevOps",
+        linkedin: "https://www.linkedin.com/in/prathamesh-malu-53655321a",
+        github: "https://github.com/pmalu9211",
+        instagram: "https://www.instagram.com/prathamalu/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/emywak7bpk0xp6phfi7q.jpg",
+      },
     ],
   },
   {
-    team: 'Web Head', members: [
-      { name: 'Viraj Sonawane', post: 'Web Head', email: 'virajssonawane324@gmail.com', linkedin: 'https://www.linkedin.com/in/viraj-sonawane-5518851a7/', github: 'https://github.com/Viraj324/', 
-      photo: img1,
+    team: 'Web Team', members: [
+      {
+        name: "Hritik Patil",
+        post: "Frontend",
+        linkedin: "https://www.linkedin.com/in/hritik-patil-147293252/",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/hritikpatil.05?utm_source=qr&igsh=eDVmNHEwNnFrZ3V0",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741561374/core-committee/t7ejpoyizdvqpgzfcyqi.jpg",
       },
-      { name: 'Om Panchwate', post: 'Web Head', email: 'ompanchwate2003@gmail.com', linkedin: 'https://linkedin.com/in/om-panchwate-a80a88233/', github: 'https://github.com/ompanchwate', 
-      photo: img1,
-      },
-
     ]
   },
-  {
-    team: 'Web Team', members: [
-      { name: 'Parth Sali', post: 'Web Team', email: 'parthsali04@gmail.com', linkedin: 'https://www.linkedin.com/in/parthsali/', github: ' https://github.com/parthsali', 
-      photo: img1,
-      },
-      { name: 'Sairaj Mane', post: 'Web Team', email: 'sairajmane.pict@gmail.com', linkedin: 'https://www.linkedin.com/in/sairaj-mane-263490188/', github: 'https://github.com/SairajMane', 
-      photo: img1,
-      },
-      { name: 'Manasi Lavekar', post: 'Web Team', email: 'manasilavekar1@gmail.com', linkedin: 'https://www.linkedin.com/in/manasi-lavekar-b3213922b/', github: 'https://github.com/Manasi-Lavekar', 
-      photo: img1,
-      },
-      { name: 'Siddhi Ove', post: 'Web Team', email: 'siddhiove0407@gmail.com', linkedin: 'https://www.linkedin.com/in/siddhi-ove-304596250/', github: 'https://github.com/sid040703', 
-      photo: img1,
-      },
-      { name: 'Sarthak Chaudhari', post: 'Web Team', email: 'Sarthakchaudhari401@gmail.com', linkedin: 'https://www.linkedin.com/in/sarthak-chaudhari-0b920722a/', github: 'https://github.com/JusticeChaudhari', 
-      photo: img1,
-      }
-    ]
-  }
-
 ]
 
 const core = [
@@ -776,47 +767,20 @@ const core = [
     team: "Overall Co-ordinators",
     members: [
       {
-        name: "Vineet Kothari",
+        name: "Mukund Karwa",
         post: "Overall Co-ordinator",
-        email: "vskothari11@gmail.com",
-        linkedin: "https://www.linkedin.com/in/vineet-kothari13/",
-        photo: img1,
+        linkedin: "https://www.linkedin.com/in/mukund-karwa-552b67321/",
+        github: "https://github.com/mukundkarwa22",
+        instagram: "https://www.instagram.com/mukund_karwa22/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/yiqdbhjv7f6djim4cda5.jpg",
       },
       {
-        name: "Gaurang Mote ",
+        name: "Piyush Kinekar",
         post: "Overall Co-ordinator",
-        email: "gaurang.mote8@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/gaurang-mote-349905230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
-      },
-      {
-        name: "Vedant Badade ",
-        post: "Overall Co-ordinator",
-        email: "vedantbadade397@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/vedant-badade-b83707234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
-      },
-    ],
-  },
-  {
-    team: "Operations Heads",
-    members: [
-      {
-        name: "Adnan Patel",
-        post: "Operations Head",
-        email: "adnanrpatel03@gmail.com",
-        linkedin: "https://www.linkedin.com/in/adnanrouf",
-        photo: img1,
-      },
-      {
-        name: "Rohan Kashikar",
-        post: "Operations Head",
-        email: "rohankashikar777@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/rohan-kashikar-19b74819b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        photo: img1,
+        linkedin: "https://www.linkedin.com/in/piyush-kinekar-883163272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/piyush_kinekar?igsh=N2N2azMybGJlbWl3",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/p6noxjjbnahmboiaqe1x.jpg",
       },
     ],
   },
@@ -824,34 +788,20 @@ const core = [
     team: "Concepts Heads",
     members: [
       {
-        name: "Shreyash Sawarkar",
+        name: "Anjali Rambhad",
         post: "Concepts Head",
-        email: "sawarkar.shreyash111@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/shreyash-sawarkar-618745272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/anjalirambhad28?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        github: "https://github.com/anjalirambhad",
+        instagram: "https://www.instagram.com/annjjaliii?igsh=aXdhaDU3Y2RlenN6&utm_source=qr",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560425/core-committee/w1qf0ggz0vdzrbxaoo1f.jpg",
       },
       {
-        name: "Srushti Kulkarni",
+        name: "Soham Kottawar",
         post: "Concepts Head",
-        email: "kulkarnisrushti100@gmail.com",
-        linkedin: "https://www.linkedin.com/in/srushti-kulkarni-36060b249",
-        photo:img1,
-      },
-      {
-        name: "Pranjal Bhokare",
-        post: "Concepts Head",
-        email: "pranjalbhokare27@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/pranjal-bhokare-3a6594201?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo:img1,
-      },
-      {
-        name: "Mitra Barve",
-        post: "Concepts Head",
-        email: "barve.mitra@gmail.com",
-        linkedin: "https://www.linkedin.com/in/mitra-barve-894827228/",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/soham-kottawar-b0079925b/",
+        github: "https://github.com/Sohamkottawar",
+        instagram: "https://www.instagram.com/sohamkottawar/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/lzzhqng2rssrsodtgb9j.jpg",
       },
     ],
   },
@@ -859,32 +809,36 @@ const core = [
     team: "Impetus Heads",
     members: [
       {
-        name: "Naman Labhsetwar",
+        name: "Kshitij Goswami",
         post: "Impetus Head",
-        email: "labhsetwarnaman@gmail.com",
-        linkedin: "https://www.linkedin.com/in/naman-labhsetwar-01638022a",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/kshitij-goswami-527100258",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/kshitijaps_23/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/xhrzfydh3bbt0dbzd2nk.jpg",
       },
       {
-        name: "Aayush Mohod",
+        name: "Madhura Pawar",
         post: "Impetus Head",
-        email: "aayushmohod4@gmail.com",
-        linkedin: "https://www.linkedin.com/in/aayush-mohod-05868022a/",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/madhura-pawar-98b728291/",
+        github: "https://github.com/Madhura2004",
+        instagram: "https://www.instagram.com/madhurapawar17?igsh=YW5uc2MyOTIxY2Fr",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/e8dtq6fgaqqvtst5b6dn.jpg",
       },
       {
-        name: "Vaishnavi Mahale",
+        name: "Aditya Choudhary",
         post: "Impetus Head",
-        email: "vaimahale74@gmail.com",
-        linkedin: "https://linkedin.com/in/vaishnavimahale",
-        photo:img1,
+        linkedin: "www.linkedin.com/in/aditya-choudhary-2aa382263",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560127/core-committee/j83xtxkgdut1jcpvjxn0.jpg",
       },
       {
-        name: "Advait Kulkarni",
+        name: "Arpita Bhandari",
         post: "Impetus Head",
-        email: "advaitkulkarni0102@gmail.com",
-        linkedin: "https://www.linkedin.com/in/advait-kulkarni-ak12",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/arpita-bhandari2511",
+        instagram: "https://www.instagram.com/arpiita_2511",
+        github: "https://github.com",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/t0rfo9ofbixnetmojb63.jpg",
       },
     ],
   },
@@ -892,99 +846,54 @@ const core = [
     team: "Pradnya Heads",
     members: [
       {
-        name: "Atharva Banasure",
+        name: "Omkar Deshmukh",
         post: "Pradnya Head",
-        email: "atharvabanasure@gmail.com",
-        linkedin: "https://www.linkedin.com/in/banasureatharva/",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/omkar-deshmukh-213bb1230/",
+        github: "https://github.com/omkar-afk",
+        instagram: "https://www.instagram.com/omkardsmk/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/eu1s3crhngu9rvjl5rrt.jpg",
       },
       {
-        name: "Manavi Khopade",
+        name: "Anushree Gattani",
         post: "Pradnya Head",
-        email: "manaviik.24@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/manavikhopade24?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo:img1,
-      },
-      {
-        name: "Tushar Birajdar",
-        post: "Pradnya Head",
-        email: "tusharbirajdar2002@gmail.com",
-        linkedin: "https://www.linkedin.com/in/tushar-birajdar-3a4754229/",
-        photo:img1,
+        linkedin: "https://www.linkedin.com/in/anushree-gattani",
+        github: "https://github.com/adgattani",
+        instagram: "https://www.instagram.com/anushreegattani_?igsh=NDd3YmJ1OHp2cTBt&utm_source=qr",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560425/core-committee/ovzwoiszeazdslscx3g6.jpg",
       },
     ],
   },
   {
-    team: "Marketing Head",
+    team: "Operations Heads",
     members: [
       {
-        name: "Raj Magdum",
+        name: "Vedang Gharat",
+        post: "Head of Operations",
+        linkedin: "https://www.linkedin.com/in/vedang-gharat/",
+        github: "https://github.com/SMUGLER79",
+        instagram: "https://www.instagram.com/_.vedang___/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/u9kofir5m0vmfypanxfl.jpg",
+      },
+      {
+        name: "Mayur Doiphode",
+        post: "Head of Operations",
+        linkedin: "https://www.linkedin.com/in/mayur-doiphode-991a8b220/",
+        instagram: "https://www.instagram.com/mayurdoiphode55/",
+        github: "https://github.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560127/core-committee/zthrq8fuc1bbrsna3hk8.jpg",
+      },
+    ],
+  },
+  {
+    team: "Marketing Heads",
+    members: [
+      {
+        name: "Kanak Agrawal",
         post: "Marketing Head",
-        email: "rajsmagdum@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/rajvardhan-magdum-a53451239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
-      },
-    ],
-  },
-  {
-    team: "Publicity Heads",
-    members: [
-      {
-        name: "Prem Chikode",
-        post: "Publicity Head",
-        email: "chikodeprem3004@gmail.com",
-        linkedin: "https://linkedin.com/in/prem-chikode",
-        photo: img1,
-      },
-      {
-        name: "Yojan Gandhi",
-        post: "Publicity Head",
-        email: "yojangandhi24@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/yojan-gandhi-406106188?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
-      },
-    ],
-  },
-  {
-    team: "V&L Head",
-    members: [
-      {
-        name: "Ojas Deshpande",
-        post: "V&L Head",
-        email: "ojasanni09@gmail.com",
-        linkedin: "https://www.linkedin.com/in/ojas-deshpande-467963226",
-        photo: img1,
-      },
-    ],
-  },
-  {
-    team: "Design Team",
-    members: [
-      {
-        name: "Sahil Todsam",
-        post: "Design Head",
-        email: "todsamsahil@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/sahil-todsam-5a8157229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        photo: img1,
-      },
-      {
-        name: "Shambhavi Lute",
-        post: "Design Head",
-        email: "shambhavilute49@gmail.com",
-        linkedin:
-          "https://www.linkedin.com/in/shambhavi-lute-051987249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
-      },
-      {
-        name: "Shlok Belgamwar",
-        post: "Design Coordinator",
-        email: "shlokbelgamwar3@gmail.com",
-        linkedin: "https://www.linkedin.com/in/shlok-belgamwar/",
-        photo: img1,
+        linkedin: "https://www.linkedin.com/in/kanak-agrawal89/",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/kanakagrawal89?igsh=MXd4aDM4aWZhbmRueA==",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/gd7iygywj0b1qa9akxzw.jpg",
       },
     ],
   },
@@ -992,18 +901,67 @@ const core = [
     team: "Social Media Heads",
     members: [
       {
-        name: "Isha Verma",
+        name: "Manaswi Hiremath",
         post: "Social Media Head",
-        email: "20.ishaverma@gmail.com",
-        linkedin: "https://linkedin.com/in/isha-verma-0b8362229",
-        photo: img1,
+        linkedin: "www.linkedin.com/in/manaswi-hiremath",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/manaswi._17/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/ambwx7exjix0lz3dob9a.jpg",
+      },
+    ],
+  },
+  {
+    team: "Design Heads",
+    members: [
+      {
+        name: "Diya Bhat",
+        post: "Design Head",
+        linkedin: "http://www.linkedin.com/in/diya-bhat-877377258",
+        github: "https://github.com/DiyaBhat20",
+        instagram: "https://www.instagram.com/_diyabhat_/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/uqni9y2sl3ku2kflejx4.jpg",
+      },
+    ],
+  },
+  {
+    team: "Escorting Heads",
+    members: [
+      {
+        name: "Tanvi Pattewar",
+        post: "Escorting Head",
+        linkedin: "https://www.linkedin.com/in/tanvi-pattewar-9a9159258",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560129/core-committee/nmgpp4fhwl6efbrhntfp.jpg",
+      },
+    ],
+  },
+  {
+    team: "Other Co-ordinators",
+    members: [
+      {
+        name: "Raghav Zanwar",
+        post: "",
+        linkedin: "https://www.linkedin.com/in/raghav-zanwar-71133a25b/",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/_zawarraghav_/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560129/core-committee/hluosqbwagptygo9rrmr.jpg",
       },
       {
-        name: "Arohi Karhade",
-        post: "Social Media Head",
-        email: "arohikarhade@gmail.com",
-        linkedin: "https://www.linkedin.com/in/arohi-karhade-220589272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        photo: img1,
+        name: "Purva Kamat",
+        post: "",
+        linkedin: "http://linkedin.com/in/poorva-kamat-8321b6332",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/purwa_kamat?igsh=NDd4NDFmOGgyN2k1&utm_source=qr",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/lzzaauxlaxmexjswcurx.jpg",
+      },
+      {
+        name: "Ria Narode",
+        post: "",
+        linkedin: "https://www.linkedin.com/in/ria-narode",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/w9jxarnjldlq7afe80yo.jpg",
       },
     ],
   },
