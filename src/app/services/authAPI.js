@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseURL = ("https://api.pictinc.org") + "/admin";
 // const baseURL = "http://localhost:3001/admin";
 
-
 export const authAPI = createApi({
     reducerPath: "auths",
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
