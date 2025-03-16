@@ -67,6 +67,11 @@ import {
       title: "Deallocate",
     },
     {
+      id: "admin/results/imp_project_score",
+      isHome: false,
+      title: "Results",
+    },
+    {
       id: "admin/logout",
       isHome: false,
       title: "Logout",

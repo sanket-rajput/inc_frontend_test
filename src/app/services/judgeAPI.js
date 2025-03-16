@@ -47,8 +47,15 @@ export const judgeAPI = createApi({
               credentials: 'include',
           })
         }),
+        getResultFromTableName: builder.query({
+          query: (tableName) => ({
+              url: `/result/${tableName}`,
+              method: 'GET',
+              credentials: 'include',
+          })
+        }),
     })
 })
 
 
-export const { useProcessJudgeRegisterMutation, useGetJudgeQuery, useLazyGetAllocatedProjectsQuery, useEvaluateProjectMutation, useGetJudgeRegistrationsQuery, } = judgeAPI
+export const { useProcessJudgeRegisterMutation, useGetJudgeQuery, useLazyGetAllocatedProjectsQuery, useEvaluateProjectMutation, useGetJudgeRegistrationsQuery, useLazyGetResultFromTableNameQuery } = judgeAPI
