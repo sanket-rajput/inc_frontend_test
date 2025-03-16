@@ -7,6 +7,7 @@ import {
     csi, intangles, eq, imocha, pasc, pisb, marketcast,
     cloudhedge,
     fold_health,
+    non_stop,
   } from "../assets";
 
   const notifications = ["🚀 Don’t just watch innovation—be part of it! Register today! 🚀", "⚡ Code, create, and conquer—your journey begins here. ⚡"]
@@ -125,6 +126,9 @@ import {
     other: [
       {src: fold_health,
         name: 'fold_health',
+      },
+      {src: non_stop,
+        name: 'non_stop',
       },
     ],
     association: [
