@@ -166,7 +166,7 @@ const WebnCore = ({ data }) => {
 			{data.map(team => (
 				<div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
 					<div className='bg-tertiary py-14 w-full relative'>
-					<h3 className='sm:text-3xl font-semibold absolute left-[50%] translate-x-[-50%] sm:top-[-6%] -top-5 bg-black-100 border-[1px] border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>{team.team}</h3>
+					<h3 className='sm:text-3xl font-semibold absolute left-[50%] translate-x-[-50%] sm:-top-6 -top-5 bg-black-100 border-[1px] border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>{team.team}</h3>
 					<div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
 						{team.members.map(m => (
 							<div className='sm:w-[300px] w-[270px]' key={m.name}>
