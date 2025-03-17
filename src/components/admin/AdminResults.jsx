@@ -29,10 +29,12 @@ const AdminResults = () => {
 
   useEffect(() => {
     if(isSuccess && isAuthenticated){
-      const columnNames = Object.keys(data[0]);
-      setColumns(columnNames.map(columnName => getColObject(columnName)));
-      const temprows = data.map((item, index) => ({id: index, ...item}));
-      setRows(temprows);
+      if(data[0]){
+        const columnNames = Object.keys(data[0]);
+        setColumns(columnNames.map(columnName => getColObject(columnName)));
+        const temprows = data.map((item, index) => ({id: index, ...item}));
+        setRows(temprows);
+      }
     }
   }, [isSuccess, data])
 
