@@ -56,9 +56,21 @@ export const adminAPI = createApi({
               credentials: 'include',
               body: data,
           })
-      }),
+        }),
+        getSynopsis: builder.query({
+          query: ({event_name, team_ids}) => ({
+            url: `/${event_name}/synopsis?team_ids=${team_ids}`,
+            method: 'GET',
+            credentials: 'include',
+            responseHandler: async (response) => {
+              const blob = await response.blob();
+              return window.URL.createObjectURL(blob);
+            },
+            cacheTime: 0,
+          }),
+        }),        
     })
 })
 
 
-export const { useLazyGetRegistrationsCountQuery, useLazyGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useLazyGetIncompleteRegistrationsQuery, } = adminAPI
+export const { useLazyGetRegistrationsCountQuery, useLazyGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useLazyGetIncompleteRegistrationsQuery, useLazyGetSynopsisQuery, } = adminAPI

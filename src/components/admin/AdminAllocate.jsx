@@ -50,7 +50,6 @@ const AdminAllocate = () => {
 
   useEffect(() => {
     if(isSuccess){
-      console.log(data);
       setJudgesData(data?.map((judge, index) => {
         return { ...judge, id: index };
       }));

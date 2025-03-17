@@ -147,6 +147,8 @@ const JudgeEvaluate = () => {
           </div>
         ))}
       </div> : <></>}
+
+      {!isFetching && !allocatedProjects?.concepts?.length && !allocatedProjects?.impetus?.length && <p className='text-center text-red-500 text-xl font-semibold pt-10'>No projects allocated.</p>}
     </div>
   )
 }

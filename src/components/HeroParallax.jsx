@@ -66,7 +66,7 @@ const Hero = () => {
             className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
             onClick={() => {navigate(`/register`)}}
           >
-            Register Now
+           going live on 21st march
           </motion.button>
         </div>
 

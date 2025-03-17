@@ -21,7 +21,7 @@ const JudgeProfile = () => {
     <div className="bg-tertiary shadow-lg p-4 py-8 sm:p-6 text-center">
       {/* Title */}
       <p className="text-sm text-orange-100 font-bold">INC 2025</p>
-      <h2 className="text-2xl font-bold text-white-100 mb-10">👨‍⚖️ Judge Profile</h2>
+      <h2 className="text-2xl font-bold text-white-100 mb-10">Judge Profile</h2>
 
       {/* User Details */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-left">

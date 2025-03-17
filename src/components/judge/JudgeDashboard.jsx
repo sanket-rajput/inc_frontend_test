@@ -29,11 +29,11 @@ const JudgeWelcome = ({ judgeData, logo }) => {
   return (
     <div className="flex flex-col justify-center items-center text-center p-4 sm:py-10 bg-tertiary shadow-lg">
       {/* Logo */}
-      <div className='flex items-center justify-between sm:w-[80%]'>
+      <div className='flex max-sm:flex-col items-center justify-between sm:w-[80%]'>
         <img src={logo} alt="InC Logo" className="w-40 mb-4" />
         
         {/* Welcome Message */}
-        <h2 className="font-bold text-orange-100 mb-2 flex flex-col items-start"><span className='text-2xl'>✨Welcome,</span> <span className='text-[50px] font-extrabold'>{judgeData?.name}!</span></h2>
+        <h2 className="font-bold text-orange-100 mb-2 sm:flex flex-col items-start max-sm:text-2xl"><span className='text-2xl'>✨Welcome,</span> <span className='sm:text-[50px] font-extrabold'>{judgeData?.name}!</span></h2>
       </div>
 
       {/* Description */}

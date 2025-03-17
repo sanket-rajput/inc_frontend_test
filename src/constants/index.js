@@ -828,6 +828,14 @@ const core = [
         instagram: "https://www.instagram.com/tanishc228/",
         photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984684/core-committee/sfghlecfqw8luvy3hyoy.jpg",
       },
+      {
+        name: "Gauri Desale",
+        post: "Concepts Head",
+        linkedin: "https://www.linkedin.com/in/gauri-desale-311514254/",
+        github: "https://github.com/gauridesale25",
+        instagram: "https://www.instagram.com/__gauriiii25/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742240496/core-committee/t9j2hzz01y35f2gxjjkm.jpg",
+      },
     ],
   },
   {
@@ -970,6 +978,14 @@ const core = [
         instagram: "https://www.instagram.com/_diyabhat_/",
         photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/uqni9y2sl3ku2kflejx4.jpg",
       },
+      {
+        name: "Sakshi Mahajan",
+        post: "Design Head",
+        linkedin: "http://www.linkedin.com/in/sakshimahajan372",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742240497/core-committee/untqeqr94cvlyiadetyq.jpg",
+      },
     ],
   },
   {
@@ -986,11 +1002,11 @@ const core = [
     ],
   },
   {
-    team: "Other Co-ordinators",
+    team: "Publicity Heads",
     members: [
       {
         name: "Raghav Zanwar",
-        post: "",
+        post: "Publicity Head",
         linkedin: "https://www.linkedin.com/in/raghav-zanwar-71133a25b/",
         github: "https://github.com/",
         instagram: "https://www.instagram.com/_zawarraghav_/",
@@ -998,7 +1014,7 @@ const core = [
       },
       {
         name: "Purva Kamat",
-        post: "",
+        post: "Publicity Head",
         linkedin: "http://linkedin.com/in/poorva-kamat-8321b6332",
         github: "https://github.com/",
         instagram: "https://www.instagram.com/purwa_kamat?igsh=NDd4NDFmOGgyN2k1&utm_source=qr",
@@ -1006,7 +1022,7 @@ const core = [
       },
       {
         name: "Ria Narode",
-        post: "",
+        post: "Publicity Head",
         linkedin: "https://www.linkedin.com/in/ria-narode",
         github: "https://github.com/",
         instagram: "https://www.instagram.com/",
