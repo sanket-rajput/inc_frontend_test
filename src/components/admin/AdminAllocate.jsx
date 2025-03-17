@@ -50,6 +50,7 @@ const AdminAllocate = () => {
 
   useEffect(() => {
     if(isSuccess){
+      console.log(data);
       setJudgesData(data?.map((judge, index) => {
         return { ...judge, id: index };
       }));
@@ -147,6 +148,15 @@ const judgeColumns = [
     minWidth: 150,
     flex: 1,
     sortable: false, 
+  },
+  {
+    field: 'date',
+    headerName: 'DOR',
+    minWidth: 100,
+    flex: 1,
+    valueGetter: (params) => {
+      return new Date(params).toLocaleDateString('en-IN');
+    }
   },
   { 
     field: 'allocated_projects', 
