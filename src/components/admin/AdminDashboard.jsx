@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import FormButton from '../forms/FormButton'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { useLazyGetRegistrationsCountQuery } from '../../app/services/adminAPI';
+import { useGetRegistrationsCountQuery, } from '../../app/services/adminAPI';
 import Loader from '../ui/Loader';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -21,16 +21,7 @@ const AdminDashboard = () => {
   const [pradnyaIncomplete, setPradnyaIncomplete] = useState(0);
   const [totalRegs, setTotalRegs] = useState(0);
 
-  const [ getRegistrationsCount, { data, isFetching, isSuccess, } ] = useLazyGetRegistrationsCountQuery();
-
-  const fetchRegistrations = async () => {
-    try {
-      await getRegistrationsCount();
-    } catch (error) {
-      console.error(error);
-      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
-    }
-  }
+  const { data, isFetching, isSuccess, isError, error } = useGetRegistrationsCountQuery();
 
   useEffect(() => {
     if(isSuccess){
@@ -45,10 +36,11 @@ const AdminDashboard = () => {
       setPradnyaIncomplete(data.pradnya_incomplete)
       setTotalRegs(data.impetus_verified + data.impetus_pending + data.concepts_verified + data.concepts_pending + data.pradnya_verified + data.pradnya_pending)
     }
-    else{
-      fetchRegistrations();
+    else if(isError){
+      console.error(error);
+      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
     }
-  }, [isSuccess, data])
+  }, [isSuccess, isError, error, data])
 
   return (
     <section className='w-full max-w-7xl mx-auto flex flex-col gap-8'>

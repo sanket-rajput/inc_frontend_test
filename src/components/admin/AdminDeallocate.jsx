@@ -12,7 +12,7 @@ const AdminDeallocate = () => {
   const judgeApiRef = useGridApiRef();
   const teamsApiRef = useGridApiRef();
 
-  const { data, refetch, isFetching: isLoadingJudges, isSuccess, isError, error } = useGetJudgeRegistrationsQuery(event_name);
+  const { data, isFetching: isLoadingJudges, isSuccess, isError, error } = useGetJudgeRegistrationsQuery(event_name);
   const [ getAllocatedProjects, { isFetching: isFetchingAllocatedProjects, isSuccess: isAllocatedProjectsSuccess, data: allocatedProjects } ] = useLazyGetAllocatedProjectsQuery();
 
   const [ deallocateJudge, { isLoading: isDeallocatingJudge } ] = useDeallocateJudgeMutation();
@@ -38,7 +38,6 @@ const AdminDeallocate = () => {
       teamsApiRef.current.setRowSelectionModel([]);
       setJid([]);
       setPid([]);
-      refetch();
     } catch (error) {
       console.error(error);
       toast.error(error?.data?.message || error?.message || "Failed to deallocate.");

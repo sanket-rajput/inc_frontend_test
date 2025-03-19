@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURL = ("https://inc-23-website-backend.onrender.com") + "/events";
+const baseURL = ("https://api.pyush.site") + "/events";
+// const baseURL = ("https://inc-23-website-backend.onrender.com") + "/events";
 // const baseURL = "http://localhost:3001/events";
 
 export const adminAPI = createApi({
@@ -73,4 +74,4 @@ export const adminAPI = createApi({
 })
 
 
-export const { useLazyGetRegistrationsCountQuery, useLazyGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useLazyGetIncompleteRegistrationsQuery, useLazyGetSynopsisQuery, } = adminAPI
+export const { useGetRegistrationsCountQuery, useGetPendingVerificationsQuery, useLazyGetVerifiedRegistrationsQuery, useGetVerifiedRegistrationsQuery, useLazyGetCollegeIDQuery, useProcessPaymentVerificationMutation, useGetIncompleteRegistrationsQuery, useLazyGetSynopsisQuery, } = adminAPI

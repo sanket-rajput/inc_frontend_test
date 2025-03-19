@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURL = ("https://inc-23-website-backend.onrender.com") + "/judge";
+const baseURL = ("https://api.pyush.site") + "/judge";
+// const baseURL = ("https://inc-23-website-backend.onrender.com") + "/judge";
 // const baseURL = "http://localhost:3001/judge";
-
 
 export const judgeAPI = createApi({
     reducerPath: "judges",
@@ -58,4 +58,4 @@ export const judgeAPI = createApi({
 })
 
 
-export const { useProcessJudgeRegisterMutation, useGetJudgeQuery, useLazyGetAllocatedProjectsQuery, useEvaluateProjectMutation, useGetJudgeRegistrationsQuery, useLazyGetResultFromTableNameQuery } = judgeAPI
+export const { useProcessJudgeRegisterMutation, useGetJudgeQuery, useLazyGetAllocatedProjectsQuery, useEvaluateProjectMutation, useGetJudgeRegistrationsQuery, useGetResultFromTableNameQuery } = judgeAPI

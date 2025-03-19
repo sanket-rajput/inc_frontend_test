@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useGetJudgeRegistrationsQuery } from '../../app/services/judgeAPI'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useLazyGetVerifiedRegistrationsQuery } from '../../app/services/adminAPI';
+import { useGetVerifiedRegistrationsQuery, } from '../../app/services/adminAPI';
 import { toast } from 'react-toastify';
 import { DataGrid, GridToolbar, useGridApiRef } from '@mui/x-data-grid';
 import FormButton from '../forms/FormButton';
@@ -12,8 +12,8 @@ const AdminAllocate = () => {
   const { event_name } = useParams(); 
   const judgeApiRef = useGridApiRef();
   const teamsApiRef = useGridApiRef();
-  const { data, refetch, isFetching: isLoadingJudges, isSuccess, isError, error } = useGetJudgeRegistrationsQuery(event_name);
-  const [ getVerifiedRegistrations, { isFetching: isLoadingTeams, isSuccess: isVerifiedSuccess, data: verifiedData } ] = useLazyGetVerifiedRegistrationsQuery();
+  const { data, isFetching: isLoadingJudges, isSuccess, isError, error } = useGetJudgeRegistrationsQuery(event_name);
+  const { isFetching: isLoadingTeams, isSuccess: isVerifiedSuccess, data: verifiedData, isError: isVerifiedError, error: verifiedError } = useGetVerifiedRegistrationsQuery(event_name);
   const [ allocateJudge, { isLoading: isAllocatingJudge, } ] = useAllocateJudgeMutation();
   const [judgesData, setJudgesData] = useState([]);
   const [verifiedRegistrations, setVerifiedRegistrations] = useState([]);
@@ -34,8 +34,6 @@ const AdminAllocate = () => {
       teamsApiRef.current.setRowSelectionModel([]);
       setJid([]);
       setPid([]);
-      refetch();
-      fetchVerifiedRegistrations();
     } catch (error) {
       console.error(error);
       toast.error(error?.data?.message || error?.message || "Failed to allocate.");
@@ -46,7 +44,11 @@ const AdminAllocate = () => {
     if(isVerifiedSuccess){
       setVerifiedRegistrations(verifiedData);
     }
-  }, [isVerifiedSuccess, verifiedData]);
+    else if(isVerifiedError){
+      console.error(verifiedError);
+      toast.error(verifiedError?.data?.message || verifiedError?.message || "Failed to fetch judges.");
+    }
+  }, [isVerifiedSuccess, verifiedData, isVerifiedError, verifiedError]);
 
   useEffect(() => {
     if(isSuccess){
@@ -58,21 +60,7 @@ const AdminAllocate = () => {
       console.error(error);
       toast.error(error?.data?.message || error?.message || "Failed to fetch judges.");
     }
-  }, [isSuccess, data]);  
-
-  useEffect(() => {
-    fetchVerifiedRegistrations();
-  }, [event_name]);
-
-  const fetchVerifiedRegistrations = () => {
-    if (["impetus", "concepts", "pradnya"].includes(event_name)) {
-      getVerifiedRegistrations(event_name)
-      .unwrap()
-      .catch((error) => {
-        toast.error(error?.data?.message || error?.message || "Failed to fetch teams.");
-      });
-    }
-  }
+  }, [isSuccess, data, isError, error]);  
 
   return (
     <section className='max-w-[90rem] mx-auto flex flex-col gap-6'>

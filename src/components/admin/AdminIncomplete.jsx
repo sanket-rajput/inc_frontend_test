@@ -5,14 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ProjectDetailsModal from './modals/ProjectDetailsModal';
 import TeamDetailsModal from './modals/TeamDetailsModal';
 import CollegeDetailsModal from './modals/CollegeDetailsModal';
-import { useLazyGetIncompleteRegistrationsQuery } from '../../app/services/adminAPI';
+import { useGetIncompleteRegistrationsQuery, } from '../../app/services/adminAPI';
 import { toast } from 'react-toastify';
 
 const AdminIncomplete = () => {
   const { event_name } = useParams();
-  const [activeEvent, setActiveEvent] = useState('impetus');
   const [rows, setRows] = useState([]);
-  const [ getIncompleteRegistrations, { isFetching, isSuccess, data } ] = useLazyGetIncompleteRegistrationsQuery();
+  const { isFetching, isSuccess, data, error, isError } = useGetIncompleteRegistrationsQuery(event_name);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,18 +26,11 @@ const AdminIncomplete = () => {
       }))
       setRows(tempRows);
     }
-  }, [isSuccess, data])
-
-  useEffect(() => {
-    if (["impetus", "concepts", "pradnya"].includes(event_name)) {
-      setActiveEvent(event_name);
-      getIncompleteRegistrations(event_name)
-      .unwrap()
-      .catch((error) => {
-        toast.error(error?.data?.message || error?.message || "Failed to fetch.");
-      });
+    else if(isError){
+      console.error(error);
+      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
     }
-  }, [ event_name ])
+  }, [isSuccess, data, error, isError])
 
   return (
     <section className='w-full max-w-7xl mx-auto flex flex-col gap-6'>
@@ -47,7 +39,7 @@ const AdminIncomplete = () => {
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Concepts`} onClick={() => {navigate('/admin/incomplete-registrations/concepts')}}/>
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Pradnya`} onClick={() => {navigate('/admin/incomplete-registrations/pradnya')}}/>
       </div>
-      <h2 className='font-bold text-3xl'>Incomplete {activeEvent[0].toUpperCase() + activeEvent.slice(1)} Registrations.</h2>
+      <h2 className='font-bold text-3xl'>Incomplete {event_name[0].toUpperCase() + event_name.slice(1)} Registrations.</h2>
       <div style={{ height: '500px', width: '100%' }}>
         <DataGrid rows={rows} columns={columns} loading={isFetching} slots={{ toolbar: GridToolbar, noRowsOverlay: CustomNoResultsOverlay }} initialState={{pagination: { paginationModel: { pageSize: 25 }}}} pageSizeOptions={[25, 50, 100, { value: -1, label: 'All' }]} disableRowSelectionOnClick />
       </div>

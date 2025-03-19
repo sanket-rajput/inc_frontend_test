@@ -3,7 +3,7 @@ import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import FormButton from "../FormButton";
 
-import { formatPhoneNumber, validate_email, validate_isEmpty, validate_phone, validateMember } from "../utils"; 
+import { formatPhoneNumber, validate_email, validate_isEmpty, validate_phone } from "../utils"; 
 import { Select } from "../../ui/select";
 import { FileUpload } from '../../ui/file-upload'
 import { toast } from "react-toastify";
@@ -84,10 +84,10 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
   }, [data, isSuccess, techfiestaMems, isTechfiestaSuccess, isTechfiestaError]); 
   
   const handleAddMember = async () => {
-    if(validateMember(newMember)){
-      toast.error('Fill all the required details correctly!')
-      return
-    }
+    // if(validateMember(newMember)){
+    //   toast.error('Fill all the required details correctly!')
+    //   return
+    // }
     newMember.id = Date.now();
     try{
       const memberFormData = new FormData();

@@ -3,7 +3,7 @@ import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import FormButton from '../forms/FormButton'
 import { useLazyGetAllocatedProjectsQuery } from '../../app/services/judgeAPI'
-import { Dialog, DialogTitle, DialogContent, Typography, IconButton, styled, Button, } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, Typography, IconButton, styled, Button, Box } from "@mui/material";
 import { IconX } from "@tabler/icons-react";
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -18,11 +18,7 @@ const JudgeEvaluate = () => {
   const [formData, setFormData] = useState(initialState);
   const [allocatedProjects, setAllocatedProjects] = useState([]);
   const [ getAllocatedProjects, { isFetching }] = useLazyGetAllocatedProjectsQuery();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const navigate = useNavigate();
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +39,7 @@ const JudgeEvaluate = () => {
     try {
       const data = await getAllocatedProjects(judge_data?.jid).unwrap();
       setAllocatedProjects(data);
+      console.log(data);
     } catch(error){
       console.error(error);
       toast.error(error?.data?.message || error?.message || 'Something went wrong');
@@ -94,7 +91,7 @@ const JudgeEvaluate = () => {
               {renderP('ID', project.pid)}
               {renderP('Lab', project.lab)}
               {renderP('Domain', project.domain)}
-              <DataDisplayModal open={open} onClose={handleClose} data={project.abstract} />
+              <AbstractModal data={project.abstract} />
               <Button
                 variant="outlined"
                 sx={{
@@ -104,20 +101,7 @@ const JudgeEvaluate = () => {
                   padding: { xs: "4px 8px", sm: "6px 12px" },
                 }}
                 color="primary"
-                onClick={handleOpen}
-              >
-                View Abstract
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: 0,
-                  width: "fit-content",
-                  fontSize: { xs: "0.75rem", sm: "0.875rem" },
-                  padding: { xs: "4px 8px", sm: "6px 12px" },
-                }}
-                color="primary"
-                onClick={() => { handleEvaluate(project.pid); } }
+                onClick={() => {handleEvaluate(project.pid);} }
               >
                 Evaluate
               </Button>
@@ -136,13 +120,20 @@ const JudgeEvaluate = () => {
               {renderP('ID', project.pid)}
               {renderP('Lab', project.lab)}
               {renderP('Domain', project.domain)}
-              <DataDisplayModal open={open} onClose={handleClose} data={project.abstract} />
-              <Button variant="outlined" sx={{ borderRadius: 0, width: 'fit-content' }} color="primary" onClick={handleOpen}>
-                View Abstract
-              </Button>
-              <Button variant="outlined" sx={{ borderRadius: 0, width: 'fit-content' }} color="primary" onClick={() => handleEvaluate(project.pid)}>
-                Evaluate
-              </Button>
+              <AbstractModal data={project.abstract} />
+              <Button
+              variant="outlined"
+              sx={{
+                borderRadius: 0,
+                width: "fit-content",
+                fontSize: { xs: "0.75rem", sm: "0.875rem" },
+                padding: { xs: "4px 8px", sm: "6px 12px" },
+              }}
+              color="primary"
+              onClick={() => handleEvaluate(project.pid)}
+            >
+              Evaluate
+            </Button>
             </div>
           </div>
         ))}
@@ -155,6 +146,31 @@ const JudgeEvaluate = () => {
 
 export default JudgeEvaluate
 
+const AbstractModal = ({data}) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <div>
+      <Button
+        variant="outlined"
+        sx={{
+          borderRadius: 0,
+          width: "fit-content",
+          fontSize: { xs: "0.75rem", sm: "0.875rem" },
+          padding: { xs: "4px 8px", sm: "6px 12px" },
+        }}
+        color="primary"
+        onClick={handleOpen}
+      >
+        View Abstract
+      </Button>
+      <DataDisplayModal open={open} onClose={handleClose} data={data} />
+    </div>
+  );
+};
+
 const StyledDialog = styled(Dialog)(() => ({
   "& .MuiDialog-paper": {
     width: "100%",
@@ -162,6 +178,11 @@ const StyledDialog = styled(Dialog)(() => ({
     margin: "16px",
     borderRadius: "0px",
   }
+}));
+
+const FieldValue = styled(Typography)(() => ({
+  color: "#ffffff",
+  marginBottom: "16px"
 }));
 
 const DataDisplayModal = ({ open, onClose, data }) => {
@@ -198,8 +219,16 @@ const DataDisplayModal = ({ open, onClose, data }) => {
         </IconButton>
       </DialogTitle>
 
-      <DialogContent dividers sx={{ p: 3, bgcolor: "#021720" }}>
-        {data}
+      <DialogContent dividers sx={{ p: 3, bgcolor: "#021720", display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+        <Box
+          sx={{
+            gridColumn: "span 2",
+            display: "grid",
+            alignItems: "start", 
+          }}
+        >
+          <FieldValue variant="body1">{data || "N/A"}</FieldValue>
+        </Box>
       </DialogContent>
     </StyledDialog>
   );
