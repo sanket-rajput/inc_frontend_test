@@ -6,14 +6,13 @@ import { Button } from '@mui/material';
 import ProjectDetailsModal from './modals/ProjectDetailsModal';
 import TeamDetailsModal from './modals/TeamDetailsModal';
 import CollegeDetailsModal from './modals/CollegeDetailsModal';
-import { useLazyGetPendingVerificationsQuery, useProcessPaymentVerificationMutation } from '../../app/services/adminAPI';
+import { useGetPendingVerificationsQuery, useProcessPaymentVerificationMutation } from '../../app/services/adminAPI';
 import { toast } from 'react-toastify';
 
 const AdminVerify = () => {
   const { event_name } = useParams();
-  const [activeEvent, setActiveEvent] = useState('impetus');
   const [rows, setRows] = useState([]);
-  const [ getPendingVerifications, { isFetching, isSuccess, data } ] = useLazyGetPendingVerificationsQuery();
+  const { isFetching, isSuccess, data, isError, error }= useGetPendingVerificationsQuery(event_name);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,18 +28,11 @@ const AdminVerify = () => {
       }))
       setRows(tempRows);
     }
-  }, [isSuccess, data])
-
-  useEffect(() => {
-    if (["impetus", "concepts", "pradnya"].includes(event_name)) {
-      setActiveEvent(event_name);
-      getPendingVerifications(event_name)
-      .unwrap()
-      .catch((error) => {
-        toast.error(error?.data?.message || error?.message || "Failed to fetch.");
-      });
+    else if(isError){
+      console.error(error);
+      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
     }
-  }, [ event_name ])
+  }, [isSuccess, isError, error, data])
 
   return (
     <section className='w-full max-w-7xl mx-auto flex flex-col gap-6'>
@@ -49,7 +41,7 @@ const AdminVerify = () => {
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Concepts`} onClick={() => {navigate('/admin/verify/concepts')}}/>
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Pradnya`} onClick={() => {navigate('/admin/verify/pradnya')}}/>
       </div>
-      <h2 className='font-bold text-3xl'>Verify {activeEvent[0].toUpperCase() + activeEvent.slice(1)} Registrations - <span className='text-slate-400'>{new Date().toDateString("en-IN", {timeZone: 'Asia/Kolkata'})}</span></h2>
+      <h2 className='font-bold text-3xl'>Verify {event_name[0].toUpperCase() + event_name.slice(1)} Registrations - <span className='text-slate-400'>{new Date().toDateString("en-IN", {timeZone: 'Asia/Kolkata'})}</span></h2>
       <div style={{ height: '500px', width: '100%' }}>
         <DataGrid rows={rows} columns={columns} loading={isFetching} slots={{ toolbar: GridToolbar, noRowsOverlay: CustomNoResultsOverlay }} initialState={{pagination: { paginationModel: { pageSize: 25 }}}} pageSizeOptions={[25, 50, 100, { value: -1, label: 'All' }]} disableRowSelectionOnClick />
       </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {useLazyGetResultFromTableNameQuery } from '../../app/services/judgeAPI';
+import {useGetResultFromTableNameQuery, } from '../../app/services/judgeAPI';
 import Loader from '../ui/Loader';
 import { Label } from '../ui/label';
 import { Select } from '../ui/select';
@@ -11,11 +11,10 @@ import { IconKeyOff } from '@tabler/icons-react';
 
 const AdminResults = () => {
   const { table_name } = useParams();
-  const [activeTable, setActiveTable] = useState('imp_project_score');
   const isAuthenticated = useSelector(state => state.auth.roles).includes('WEB_MASTER');
   const [rows, setRows] = useState([]);
   const [columns, setColumns] = useState([]);
-  const [ getResultFromTableName, { data, isFetching, isSuccess,} ] = useLazyGetResultFromTableNameQuery();
+  const { data, isFetching, isSuccess, isError, error} = useGetResultFromTableNameQuery(table_name);
   const navigate = useNavigate();
 
   const getColObject = (columnName) => {
@@ -36,24 +35,17 @@ const AdminResults = () => {
         setRows(temprows);
       }
     }
-  }, [isSuccess, data])
-
-  useEffect(() => {
-    if (["imp_project_score", "imp_percentile_project_to_judge", "judges_max_per_para_concepts", "judges_max_per_para_impetus", "percentile_project_to_judge", "project_score"].includes(table_name) && isAuthenticated) {
-      setActiveTable(table_name);
-      getResultFromTableName(table_name)
-      .unwrap()
-      .catch((error) => {
-        toast.error(error?.data?.message || error?.message || "Failed to fetch.");
-      });
+    else if(isError){
+      console.error(error);
+      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
     }
-  }, [ table_name ]);
+  }, [isSuccess, data, isError, error])
 
   return (
     isAuthenticated ? 
     <section className='w-full max-w-7xl mx-auto flex flex-col gap-6'>
       <div className='flex justify-between items-end pt-10'>
-      <h2 className='font-bold text-3xl'>Showing Result - <span className='text-slate-400'>{activeTable}</span></h2>
+      <h2 className='font-bold text-3xl'>Showing Result - <span className='text-slate-400'>{table_name}</span></h2>
       <form className='flex flex-col'>
           <Label htmlFor="result_type">Result Type</Label>
           <Select
@@ -66,7 +58,7 @@ const AdminResults = () => {
               { "value": "percentile_project_to_judge", "label": "Percentile Project To Judge" },
               { "value": "project_score", "label": "Concepts Project Score" }
             ]}
-            value={activeTable}
+            value={table_name}
             onChange={(e) => {navigate(`/admin/results/${e.target.value}`)}}
             id="result_type"
             name="result_type"

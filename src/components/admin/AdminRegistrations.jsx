@@ -5,33 +5,25 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ProjectDetailsModal from './modals/ProjectDetailsModal';
 import TeamDetailsModal from './modals/TeamDetailsModal';
 import CollegeDetailsModal from './modals/CollegeDetailsModal';
-import { useLazyGetVerifiedRegistrationsQuery } from '../../app/services/adminAPI';
+import { useGetVerifiedRegistrationsQuery, } from '../../app/services/adminAPI';
 import { toast } from 'react-toastify';
 
 
 const AdminRegistrations = () => {
   const { event_name } = useParams();
-  const [activeEvent, setActiveEvent] = useState('impetus');
   const [ rows, setRows ] = useState([]);
-  const [ getVerifiedRegistrations, { isFetching, isSuccess, data, } ] = useLazyGetVerifiedRegistrationsQuery();
+  const { isFetching, isSuccess, data, error, isError } = useGetVerifiedRegistrationsQuery(event_name);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isSuccess) {
       setRows(data);
     }
-  }, [isSuccess, data]);
-  
-  useEffect(() => {
-    if (["impetus", "concepts", "pradnya"].includes(event_name)) {
-      setActiveEvent(event_name);
-      getVerifiedRegistrations(event_name)
-      .unwrap()
-      .catch((error) => {
-        toast.error(error?.data?.message || error?.message || "Failed to fetch.");
-      });
+    else if(isError){
+      console.error(error);
+      toast.error(error?.data?.message || error?.message || 'Failed to fetch.');
     }
-  }, [event_name]);
+  }, [isSuccess, data, error, isError]);
 
   return (
     <section className='w-full max-w-7xl mx-auto flex flex-col gap-6'>
@@ -40,7 +32,7 @@ const AdminRegistrations = () => {
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Concepts`} onClick={() => {navigate('/admin/registrations/concepts')}}/>
         <FormButton className={`w-auto h-auto px-4 py-2`} text={`Pradnya`} onClick={() => {navigate('/admin/registrations/pradnya')}}/>
       </div>
-      <h2 className='font-bold text-3xl'>{activeEvent[0].toUpperCase() + activeEvent.slice(1)} Registrations.</h2>
+      <h2 className='font-bold text-3xl'>{event_name[0].toUpperCase() + event_name.slice(1)} Registrations.</h2>
       <div style={{ height: '500px', width: '100%' }}>
         <DataGrid rows={rows} columns={columns} loading={isFetching} slots={{ toolbar: GridToolbar, noRowsOverlay: CustomNoResultsOverlay }} initialState={{pagination: { paginationModel: { pageSize: 25 }}}} pageSizeOptions={[25, 50, 100, { value: -1, label: 'All' }]} disableRowSelectionOnClick />
       </div>
