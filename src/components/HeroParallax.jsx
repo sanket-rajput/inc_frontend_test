@@ -7,7 +7,7 @@ import {
   motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
-import ShiftingCountdown from './ui/countdown';
+// import ShiftingCountdown from './ui/countdown';
 
 import { light, concepts_b, impetus_b, pradnya_b } from '../assets'
 import HeroSlider from './HeroSlider';
@@ -66,7 +66,7 @@ const Hero = () => {
             className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
             onClick={() => {navigate(`/register`)}}
           >
-           We're Live
+           We&apos;re Live
           </motion.button>
         </div>
 

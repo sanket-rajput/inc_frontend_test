@@ -4,7 +4,6 @@ const baseURL = ("https://api.pyush.site") + "/events";
 // const baseURL = ("https://inc-23-website-backend.onrender.com") + "/events";
 // const baseURL = "http://localhost:3001/events";
 
-
 export const formAPI = createApi({
     reducerPath: "forms",
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
