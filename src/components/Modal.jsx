@@ -78,6 +78,12 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
+										<span className="text-blue-600 underline"><a href="https://drive.google.com/file/d/1Ti_lCkh0LRIMSN4qGNXaN31OFuTgYA_Y/view?usp=sharing" target="_blank">Concepts Schedule</a></span>
+									</li>
+									<li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
 										<span className="text-white">Registrations for Concepts are now officially closed.</span>
 									</li>
 									<li className="text-red-600 flex items-center gap-2">
