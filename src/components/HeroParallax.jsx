@@ -7,7 +7,7 @@ import {
   motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
-import ShiftingCountdown from './ui/countdown';
+// import ShiftingCountdown from './ui/countdown';
 
 import { light, concepts_b, impetus_b, pradnya_b } from '../assets'
 import HeroSlider from './HeroSlider';
@@ -66,17 +66,18 @@ const Hero = () => {
             className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
             onClick={() => {navigate(`/register`)}}
           >
-           going live on 21st march
+           We&apos;re Live
           </motion.button>
         </div>
 
       </div>
-      <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 mt-10 xl:-mr-9 relative'>
+      <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 mt-10 sm:mt-16 xl:-mr-9 relative'>
         <img loading='lazy'  src={light} alt="light" className='absolute object-cover pointer-events-none top-[-28%] translate-x-[50%] right-[50%] z-10 opacity-35 max-sm:hidden'/>
         <div className='w-[240px] h-[240px] sm:w-[400px] sm:h-[400px] relative'>
           <IncCanvas />
         </div>
-        <ShiftingCountdown />
+        {/* <ShiftingCountdown /> */}
+        <h2 className='text-red-500 text-[150px] font-extrabold'>LIVE</h2>
       </div>
     </div>
     <div className="absolute left-0 top-0 bottom-0 sm:w-10 w-4 bg-gradient-to-l from-[#000609]/0 to-[#000609]" />
