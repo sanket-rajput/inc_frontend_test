@@ -3,7 +3,7 @@ import { Input } from "../../ui/input";
 import { Label } from "../../ui/label";
 import FormButton from "../FormButton";
 
-import { formatPhoneNumber, validate_email, validate_isEmpty, validate_phone } from "../utils"; 
+import { formatPhoneNumber, validate_email, validate_isEmpty, validate_phone, validateMember } from "../utils"; 
 import { Select } from "../../ui/select";
 import { FileUpload } from '../../ui/file-upload'
 import { toast } from "react-toastify";
