@@ -51,12 +51,6 @@ const columns = [
     flex: 1 
   },
   { 
-    field: 'judges_count', 
-    headerName: 'Judges Count', 
-    minWidth: 150, 
-    flex: 1 
-  },
-  { 
     field: 'evaluations', 
     headerName: 'Evaluation Count', 
     minWidth: 150, 
@@ -65,7 +59,12 @@ const columns = [
       return params.split(',').length;
     }  
   },
-  
+  { 
+    field:"evaluations", 
+    headerName: "Judge ID's", 
+    minWidth: 150, 
+    flex: 1 
+  },
   { 
     field: 'projectDetails', 
     headerName: 'Project Details', 
