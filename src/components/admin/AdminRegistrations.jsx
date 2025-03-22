@@ -56,7 +56,7 @@ const columns = [
     minWidth: 150, 
     flex: 1,
     valueGetter: (params) => {
-      return params.split(',').length;
+      return params.split(',').length - 1;
     }  
   },
   { 
