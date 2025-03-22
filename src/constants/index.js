@@ -1030,6 +1030,19 @@ const core = [
       },
     ],
   },
+  {
+    team: "Anchoring Lead",
+    members: [
+      {
+        name: "Bhajnit Singh Hooda ",
+        post: "",
+        linkedin: "https://www.linkedin.com/in/bhajnit-singh-hooda-7200a8268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/",
+        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742640935/core-committee/uh2g1mgythrszrai64qg.jpg",
+      },
+    ],
+  },
 ];
   
   const timeline = [
