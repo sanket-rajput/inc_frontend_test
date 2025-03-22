@@ -60,12 +60,6 @@ const columns = [
     }  
   },
   { 
-    field:"evaluations", 
-    headerName: "Judge ID's", 
-    minWidth: 150, 
-    flex: 1 
-  },
-  { 
     field: 'projectDetails', 
     headerName: 'Project Details', 
     minWidth: 150, 
