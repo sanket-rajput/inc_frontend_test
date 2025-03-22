@@ -65,6 +65,7 @@ const columns = [
       return params.split(',').length;
     }  
   },
+  
   { 
     field: 'projectDetails', 
     headerName: 'Project Details', 
