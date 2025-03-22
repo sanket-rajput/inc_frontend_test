@@ -58,9 +58,12 @@ const columns = [
   },
   { 
     field: 'evaluations', 
-    headerName: 'Evaluations', 
+    headerName: 'Evaluation Count', 
     minWidth: 150, 
-    flex: 1 
+    flex: 1,
+    valueGetter: (params) => {
+      return params.split(',').length;
+    }  
   },
   { 
     field: 'projectDetails', 
