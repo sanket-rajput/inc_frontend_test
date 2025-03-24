@@ -1,62 +1,63 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
-import { faculty, web, core } from '../constants';
-import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
+import { results } from '../constants';
 import { cn } from "../lib/utils";
-import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import confetti from 'canvas-confetti';
 
-const Committee = () => {
-	const [activeCommittee, setActiveCommittee] = useState('core');
+const Results = () => {
+	const [activeResult, setActiveResult] = useState('impetus');
 	const navigate = useNavigate();
-	const { id } = useParams();
+	const { event_name } = useParams();
 
-	useEffect(() => {
-		scrollToTop();
-		setActiveCommittee(id);
-	}, [id])
+	useEffect(() => {     
+    scrollToTop();     
+    setActiveResult(event_name);
+  }, [event_name]);
 
-	const committees = {
-		faculty,
-		core,
-		web,
-	};
+  useEffect(() => {
+    const burst = (originX, originY) => {
+      confetti({
+        particleCount: 80,
+        spread: 90,
+        origin: { x: originX, y: originY },
+        colors: ["#ff4500", "#ffcc00", "#0000FF"],
+      });
+    };
+
+    const timeoutRef = setTimeout(() => {         
+      burst(0, 0.5);       
+      burst(1, 0.5);       
+      burst(0.5, 0.2);       
+      burst(0.5, 0.8);     
+    }, 700);    
+
+    return () => clearTimeout(timeoutRef);
+  }, []);
+
 
 	const words = [
 		{
-			text: "Behind ",
+			text: "Winners ",
 		},
 		{
-			text: "every ",
+			text: "of ",
 		},
 		{
-			text: "triumph ",
+			text: "InC ",
 		},
 		{
-			text: "lies ",
-		},
-		{
-			text: "a ",
-		},
-		{
-			text: "resolute ",
-		},
-		{
-			text: "coalition. ",
-			className: "text-orange-100",
+			text: "2025. ",
 		},
 	];
 
 	return (
-		(id === 'core' || id === 'web' || id === 'faculty') ?
+		(event_name === 'impetus' || event_name === 'concepts' || event_name === 'pradnya') ?
 		<section className="py-24 relative bg-primary w-full flex flex-col items-center">
-			<Spotlight
-        className="left-0 md:left-60 top-0"
-        fill="white"
-      />
+			
 			<motion.div
 				initial={{ y: 100, opacity: 0 }}
 				whileInView={{ y: 0, opacity: 1 }}
@@ -65,10 +66,9 @@ const Committee = () => {
 			>
 				<h2 className={`${styles.sectionHeadText} flex flex-col sm:-space-y-2 text-white-100 pb-4 px-2 items-center`}>
 					<span className='sm:text-[50px] xs:text-[40px] text-[25px] sm:hidden'>
-						Behind every triumph lies a resolute coalition.
+						Winners of InC 2025.
 					</span>
 					<TypewriterEffectSmooth words={words} className={'max-sm:hidden'} />
-					<span>Meet ours<span className='text-orange-100'>!</span></span>
 				</h2>
 			</motion.div>
 
@@ -76,19 +76,19 @@ const Committee = () => {
 
 			<div className="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4 sm:gap-8 mt-4 mb-14 w-full bg-primary">
 				<span className='bg-gradient-to-l from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
-				{Object.keys(committees).map((committee) => (
+				{Object.keys(results).map((result) => (
 					<button
-						key={committee}
-						onClick={() => navigate(`/committee/${committee}`)}
+						key={result}
+						onClick={() => navigate(`/results/${result}`)}
 						className={`group/button relative inline-block p-px font-semibold leading-6 text-white-100 shadow-2xl cursor-pointer shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 z-10
-							${activeCommittee === committee ? 'bg-tertiary' : 'bg-gray-800'}`}
+							${activeResult === result ? 'bg-tertiary' : 'bg-gray-800'}`}
 					>
 						<span className="absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-[2px] opacity-0 transition-opacity duration-500 group-hover/button:opacity-100"></span>
 
 						<span className="relative z-10 block px-6 py-2 bg-tertiary">
 							<div className="relative z-10 flex items-center space-x-2">
 								<span className="transition-all duration-500 group-hover/button:translate-x-1 tracking-wide">
-									{committee.toUpperCase()}
+									{result.toUpperCase()}
 								</span>
 								<svg
 									className="w-6 h-6 transition-transform duration-500 group-hover/button:translate-x-1"
@@ -112,17 +112,13 @@ const Committee = () => {
 			</div>
 
 			<h3 className='text-3xl capitalize font-bold mb-16'>
-				{activeCommittee}&nbsp;Committee
+				{activeResult}&nbsp; Winners
 			</h3>
 
 			<div className='w-full max-w-[90rem] max-sm:px-2'>
-					{activeCommittee === 'faculty' && <div className='w-full bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-px'>
-						<div className='bg-tertiary md:p-8 px-4 py-8 max-sm:px-2'>
-							<Faculty data={committees[activeCommittee]} />
-						</div>
-					</div>}
-					{activeCommittee === 'core' && <WebnCore data={committees[activeCommittee]} />}
-					{activeCommittee === 'web' && <WebnCore data={committees[activeCommittee]} />}
+        {activeResult === 'impetus' && <DisplayResult data={results[activeResult]} />}
+        {activeResult === 'concepts' && <DisplayResult data={results[activeResult]} />}
+        {activeResult === 'pradnya' && <DisplayResult data={results[activeResult]} />}
 			</div>
 		</section>
 		:
@@ -130,73 +126,36 @@ const Committee = () => {
 	);
 };
 
-const Faculty = ({ data: faculty }) => {
-	return (
-		<Accordion>
-			{
-				faculty?.map(position => (
-					<AccordionItem key={position.value}>
-						<AccordionHeader>{position.value}</AccordionHeader>
-						<AccordionPanel>
-							<ul className='text-white-100 list-disc list-inside'>
-								{
-									position.names.map((name) => (
-										<li className='' key={name.value}>{name.value.trim().slice(3)}</li>
-									))
-								}
-							</ul>
-						</AccordionPanel>
-					</AccordionItem>
-				))
-			}
-		</Accordion>
-	)
-}
+export default Results;
 
-const WebnCore = ({ data }) => {
-
-	const handleLinkClick = (link) => {
-		window.open(link, "_blank");
-	}
-
+const DisplayResult = ({ data }) => {
 	return (
 		<div className='flex flex-col items-center w-full gap-[4rem]'>
-			{data.map(team => (
-				<div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
+			{data.map(domain => (
+				<div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={domain.dname}>
 					<div className='bg-tertiary py-14 w-full relative'>
-					<h3 className='sm:text-3xl font-semibold absolute left-[50%] translate-x-[-50%] sm:-top-6 -top-5 bg-black-100 border-[1px] border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>{team.team}</h3>
+					<h3 className='font-semibold absolute left-[50%] translate-x-[-50%] -top-5 bg-black-100 border-[1px] border-white-100 px-4 py-1 text-xl text-center max-sm:hidden'>{domain.dname}</h3>
+          <h3 className='font-semibold absolute left-[50%] translate-x-[-50%] -top-5 bg-black-100 border-[1px] border-white-100 w-[290px] px-4 py-1 text-xl text-center sm:hidden'>{domain.dname.lastIndexOf('(') > 0 ? domain.dname.slice(domain.dname.lastIndexOf('(')+1, domain.dname.lastIndexOf(')')) : domain.dname}</h3>
 					<div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
-						{team.members.map(m => (
-							<div className='sm:w-[300px] w-[270px]' key={m.name}>
-								<BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
-									<img 
-										loading='lazy' 
-										src={m.photo}
-										alt="member"
-										className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
-									/>
-									<div>
-										<h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
-										<p className='text-sm text-secondary text-center'>{m.post}</p>
-									</div>
-									<div className='flex items-center gap-4'>
-										<IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
-										<IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
-										<IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
-									</div>
-								</BackgroundGradient>
-							</div>
-						))}
-					</div>
+            {domain.values.map(m => (
+                <BackgroundGradient key={m.team_id} className="sm:w-[350px] w-[290px] p-4 bg-black-100 flex flex-col items-center gap-2 h-full">
+                  <p className='font-semibold text-secondary text-center'>{m.position}</p>
+                  <div className='flex flex-col items-start w-full gap-2'>
+                    <h4 className='text-xl text-white-100 flex justify-between w-full gap-4'><span className='font-bold text-nowrap'>{m.team_id}</span><span className='text-sm text-secondary break-all'>{m.institute}</span></h4>
+                    <p className='font-semibold'>{m.title} </p>
+                  </div>
+                  <ul className='list-disc'>
+                    {m.names.map((n, i) => <li className='text-sm' key={i}>{n}</li>)}
+                  </ul>
+                </BackgroundGradient>
+            ))}
+          </div>
 					</div>
 				</div>
 			))}
 		</div>
 	)
-
 }
-
-export default Committee;
 
 const BackgroundGradient = ({
   children,
@@ -264,45 +223,4 @@ const BackgroundGradient = ({
       </div>
     </div>
   );
-};
-
-const Spotlight = ({
-	className,
-	fill
-}) => {
-	return (
-		(<svg
-			className={cn(
-				"animate-spotlight pointer-events-none absolute z-[1] w-[138%] lg:w-[84%] opacity-0",
-				className
-			)}
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 3787 2842"
-			fill="none">
-			<g filter="url(#filter)">
-				<ellipse
-					cx="1924.71"
-					cy="273.501"
-					rx="1924.71"
-					ry="273.501"
-					transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
-					fill={fill || "white"}
-					fillOpacity="0.21"></ellipse>
-			</g>
-			<defs>
-				<filter
-					id="filter"
-					x="0.860352"
-					y="0.838989"
-					width="3785.16"
-					height="2840.26"
-					filterUnits="userSpaceOnUse"
-					colorInterpolationFilters="sRGB">
-					<feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-					<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-					<feGaussianBlur stdDeviation="151" result="effect1_foregroundBlur_1065_8"></feGaussianBlur>
-				</filter>
-			</defs>
-		</svg>)
-	);
 };

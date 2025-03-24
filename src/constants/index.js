@@ -14,6 +14,11 @@ import {
   
   const navLinks = [
     {
+      id: "results/impetus",
+      isHome: false,
+      title: "Results",
+    },
+    {
       id: "about",
       isHome: true,
       title: "About",
@@ -1044,6 +1049,455 @@ const core = [
     ],
   },
 ];
+
+const results = {
+  impetus : [
+    {
+      dname: 'APPLICATION DEVELOPMENT (AD)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-AD1017',
+          title: 'FinBuddy AI - Personalised Finance Manager',
+          names: ['Advait Joshi', 'Anshul Kalbande', 'Anurag Mandke', 'Amey Kulkarni', 'Tirthraj Mahajan'],
+          institute: 'VIIT, Pune'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-AD0103',
+          title: 'StudyGenie - AI Powered Learning Revolution for Technical Students',
+          names: ['Apurv Saktepar', 'Viraj Desai', 'Nisha Pragane', 'Vaishnavi Thorbole'],
+          institute: 'GP, Pune'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-AD0048',
+          title: 'AI video editor and utility (SAAS)',
+          names: ['Mrinmayee Deshpande', 'Dipali Gangarde', 'Aniket Dhage'],
+          institute: 'VIIT, Pune'
+        }
+      ]
+    },
+    {
+      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-CN1018',
+          title: 'Dexx Aggregator',
+          names: ['Atharva Dhavale', 'Sakshi Chougule', 'Kartik Sirsillo', 'Aayush Meghal', 'Anuj Nagpure'],
+          institute: 'VIIT, Pune'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-CN0021',
+          title: 'AirGlove',
+          names: ['Shlok Khairnar', 'Shridhar Gore', 'Harshwardhan Saindane'],
+          institute: 'PCCOE, Pune'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-CN0015',
+          title: 'Guardians 360',
+          names: ['Akshay Dhere', 'Harshal Patil', 'Ayush Peshawar'],
+          institute: 'PICT, Pune'
+        }
+      ]
+    },
+    {
+      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-DS0007',
+          title: 'TraceHost: Authenticity & Security Analyzer for Websites',
+          names: ['Prasanna Patwardhan', 'Piyush Deshmukh', 'Yugandhar Chawale', 'Yash Kulkarni', 'Rahul Dewani'],
+          institute: 'PICT, Pune'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-DS0013',
+          title: 'Careflex: Real-Time Health Monitoring System for Post-C-Section Recovery',
+          names: ['Shubham Pawade', 'Supragy Mishra', 'Bhargavi Potode', 'Pratik Bhosale', 'Anooj Jilladwar'],
+          institute: 'K.K Wagh, Nashik'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-DS0020',
+          title: 'Smart Dustbin: Automated Waste Segregation & Monitoring',
+          names: ['Vedant Nadhe', 'Pranav Bire', 'Arya Kadam', 'Saksham Saipatwar'],
+          institute: 'VIT, Pune'
+        }
+      ]
+    },
+    {
+      dname: 'EMBEDDED/ VLSI SYSTEMS (ES)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-ES0035',
+          title: 'InsightX: Predictive maintenance ecosystem',
+          names: ['Om Ganjewar', 'Vaishnavi Gaikwad'],
+          institute: 'VIT, Pune'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-ES0001',
+          title: 'Drone Based Intelligent System for Apple Orchard Monitoring',
+          names: ['Divya Bhavsar', 'Prasad Patil', 'Saniya Bhosale', 'Swadesh Jadhav', 'Tejas Deshmukh'],
+          institute: 'K.K Wagh, Nashik'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-ES0034',
+          title: 'Crop Disease Detection System',
+          names: ['Ritanshu Sadaphale', 'Bhargavi Sarde'],
+          institute: 'MITAOE, Pune'
+        }
+      ]
+    },
+    {
+      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-ML0041',
+          title: 'SMART GRAIN MANAGEMENT ROBOT FOR EFFICIENT GRAIN STORAGE',
+          names: ['Shantanu Shinde', 'Ashish Tembhekar'],
+          institute: 'SCE, Kopargaon'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-ML0068',
+          title: 'Sanjeevani AI',
+          names: ['Oceania Kshetrimayum', 'Akshda Khairnar', 'Meghraj Bhavsar', 'Shrey Salunkhe', 'Pranav Prajapati'],
+          institute: 'VIIT, Pune'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-ML0063',
+          title: 'SMART BLIND STICK USING GPS AND GSM',
+          names: ['Manish Pingale', 'Vedant Chandler', 'Sahil Dhawane', 'Sai Sinare'],
+          institute: 'VIT, Pune'
+        }
+      ]
+    },
+    {
+      dname: 'OTHERS (OT)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'IM-OT0041',
+          title: 'Site-Guide : Web Navigation Helper',
+          names: ['Bhavesh Kale', 'Manas Shinde', 'Akash Shankpal', 'Umesh Bava', 'Harsh Agnani'],
+          institute: 'NCER, Pune'
+        },
+        {
+          position: '1st runner up',
+          team_id: 'IM-OT0065',
+          title: 'AnvikshAI : Crafting Adaptive Learning Journeys',
+          names: ['Atharva Patwardhan', 'Atharva Muchandi', 'Vishruti Mohinkar', 'Vedant Nagmotti'],
+          institute: 'K.K Wagh, Nashik'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'IM-OT0080',
+          title: 'AR Wardrobe',
+          names: ['Ayush Walzade', 'Yashraj Shinde', 'Sumit Kotame', 'Kunal Deharkar', 'Nikhil Bankar'],
+          institute: 'VIT, Pune'
+        }
+      ]
+    }
+  ],
+  concepts : [
+    {
+      dname: 'APPLICATION DEVELOPMENT (AD)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-AD1085',
+          title: 'Beenium',
+          institute: 'PICT, Pune',
+          names: ['Abhijit Raygonda Khyade', 'Jayash Gaikwad', 'Priyanshu Purushottam Mahukhaye']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-AD0047',
+          title: 'Enhancing Vocational Education with VR and AI Integration',
+          institute: 'K.K Wagh, Nashik',
+          names: ['Aastha Zade', 'Harsh Tayade', 'Pratik Puri', 'Samay Thakur']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-AD1080',
+          title: 'Mahavitaran Help App: A Comprehensive Mobile Application for Reporting Electrical Problems Using Cloud and Location Based Services',
+          institute: 'PICT, Pune',
+          names: ['Tanya Jagavkar', 'Yatin Nargotra']
+        }
+      ]
+    },
+    {
+      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-CN0024',
+          title: 'Wireless Nurse Call Bell System',
+          institute: 'AISSMS, Pune',
+          names: ['Bhagyashree Dhananjay Gade', 'Aditi Ashutosh Kulkarni', 'Vaibhavi Jitendra Panval']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-CN1028',
+          title: 'Anomaly detection in NFS based on user access patterns',
+          institute: 'PICT, Pune',
+          names: ['Aditya More', 'Ashwin Taras', 'Riddhi Kulkarni']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-CN1040',
+          title: 'AI-Powered Server Compliance Auditing & Anomaly Detection for Secure Network Operations',
+          institute: 'PICT, Pune',
+          names: ['Mahesh Vaswani', 'Mayuri Kolhe', 'Shrutika Malve', 'Tejas Thorat']
+        }
+      ]
+    },
+    {
+      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-DS1007',
+          title: 'Project MAVIS: Media Authenticity, Verification and Integrity System',
+          institute: 'PICT, Pune',
+          names: ['Chinmay Patil', 'Omkar Wagholikar', 'Shantanu Wable', 'Soaham Pimparkar']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-DS1060',
+          title: 'SMART AUDIO FORENSICS : AI-Based Speaker Verification and Deepfake Detection',
+          institute: 'PICT, Pune',
+          names: ['Sarthak Chaudhari', 'Siddhi Pardeshi']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-DS0044',
+          title: 'Third Eye : Streaming Security in every frame through Neural Networks',
+          institute: 'K.K Wagh, Nashik',
+          names: ['Akshay Abhay Khandare', 'Nishant Singh', 'Shruti Shinde', 'Devansh Dubey']
+        }
+      ]
+    },
+    {
+      dname: 'EMBEDDED/VLSI SYSTEMS (ES)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-ES1024',
+          title: 'CORDIC Algorithm on FPGA',
+          institute: 'PICT, Pune',
+          names: ['Isha Lale', 'Neha Joshi', 'Kaushal Kulkarni']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-ES1012',
+          title: 'Satellite-Based Toll Processing System',
+          institute: 'PICT, Pune',
+          names: ['Aaryaman Rahul Limaye', 'Sakshi Dhananjay Jawale', 'Shambhavi Vinod Lute']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-ES1037',
+          title: 'rainmaker-rs : Developing safe IoT applications using Rust',
+          institute: 'PICT, Pune',
+          names: ['Akshay Lahoti', 'Shreyash Bubane', 'Chinmay Dixit']
+        }
+      ]
+    },
+    {
+      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-ML0151',
+          title: 'Forest Insight: GIS Based Monitoring Deforestation and Carbon Sequestration',
+          institute: 'K.K. Wagh, Nashik',
+          names: ['Shreyas Bidwai', 'Kshitij Rathore', 'Sanchita Sanjay Weljali', 'Vikas Sangale']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-ML1208',
+          title: 'AI-Driven CRISPR System with Genome Study and Genomic Analysis',
+          institute: 'PICT, Pune',
+          names: ['Aditya Kadam', 'Akshay Gawande', 'Hitesh Khirid']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-ML1177',
+          title: 'AgriCare AI',
+          institute: 'PICT, Pune',
+          names: ['Divya Tambe', 'Shubhankar Karajkhede', 'Swaraj Zende']
+        }
+      ]
+    },
+    {
+      dname: 'OTHERS (OT)', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-OT1096',
+          title: 'Multiplayer Competitive Game',
+          institute: 'PICT, Pune',
+          names: ['Aditya Mittal', 'Sunay Bhoyar', 'Pranav Jaju', 'Tarun Santani']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-OT1089',
+          title: 'Rail Resource Optimization',
+          institute: 'PICT, Pune',
+          names: ['Arnav Desai', 'Hatim Talwarawala', 'Saniya Atalatti', 'Shatakshi Chaudhari']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-OT1118',
+          title: 'Augmenting Legal Research using Information Retrieval',
+          institute: 'PICT, Pune',
+          names: ['Adwait Desai', 'Atharva Dandgawhal', 'Saif Shaikh']
+        }
+      ]
+    },
+    {
+      dname: 'OPEN HARDWARE', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-ES1011',
+          title: 'Collaborative Robot – Automated Task Optimization',
+          institute: 'PICT, Pune',
+          names: ['Aditi Zeminder', 'Prathamesh Raibhole', 'Vaibhav Patil']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-ES1010',
+          title: 'Battery Management System',
+          institute: 'PICT, Pune',
+          names: ['Aditi Makarand Bhatkhedkar', 'Manish Dhumal']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-DS0002',
+          title: 'AI-Powered Smart Glasses: Affordable Assistive Technology for the Visually Impaired',
+          institute: 'PCCOE, Pune',
+          names: ['Amruta Kothawade', 'Omkar Kulkarni', 'Sakshi Jadhav', 'Soham Joshi']
+        }
+      ]
+    },
+    {
+      dname: 'OPEN SOFTWARE', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-OT0114',
+          title: 'Sherlock - State of the art deepfake prevention system.',
+          institute: 'MKSSS CCOEW, Pune',
+          names: ['Ananti Mulay', 'Gargee Dorle', 'Isha Purnapatre', 'Shruti Kulkarni']
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'CO-DS0035',
+          title: 'MRI to CT image synthesis',
+          institute: "PVG, Pune",
+          names: ['Sakshi Pote', 'Rajat Raj Sharma', 'Shruti Patki', 'Sahil Thite']
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'CO-AD1092',
+          title: 'IamReadyAI - AI powered Mock Interview platform',
+          institute: 'PICT, Pune',
+          names: ['Gopal Singh Saraf', 'Prathamesh Shriramwar', 'Rishikesh Revandikar', 'Shivanjali Thorat']
+        }
+      ]
+    },
+    {
+      dname: 'RURAL', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-OT0123',
+          title: 'Gas leakage detection system with advanced safety enhancement.',
+          institute: 'SGM, Mahagaon',
+          names: ['Laukik Pradip Karekar', 'Ruturaj Girish Kumbhar', 'Shantanu Bajarang Chougale']
+        }
+      ]
+    },
+    {
+      dname: 'OUT OF MAHARASHTRA', 
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'CO-OT0126',
+          title: 'IOT BASED SMART SYRINGE INFUSION AND IV FLUID MONITORING AND ALERTING SYSTEM',
+          institute: 'VBIT, Telangana',
+          names: ['Kristamsetty Nikhil Kumar', 'Konda Kushal Reddy', 'Nalamasa Rahul']
+        }
+      ]
+    }
+  ],
+  pradnya : [
+    {
+      dname: 'Senior Category',
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'P-036',
+          title: 'oreo99',
+          names: ['Aniketh Pala', 'Arya Lokhande'],
+          institute: 'VIT, Pune'
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'P-470',
+          title: 'wide_pet_51',
+          names: ['Vedant Rawale', 'Kunal Bhalgat'],
+          institute: 'VIT, Pune'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'P-352',
+          title: 'autom_leaf',
+          names: ['Kaustubh Jaitapkar', 'Ritesh Patil'],
+          institute: 'WCE, Sangli'
+        }
+      ]
+    },
+    {
+      dname: 'Junior Category',
+      values: [
+        {
+          position: 'Winner',
+          team_id: 'P-066',
+          title: 'souravkushwaha',
+          names: ['Sandeep Yadav', 'Sourabh'],
+          institute: 'AIT, Pune'
+        },
+        {
+          position: '1st Runner Up',
+          team_id: 'P-039',
+          title: 'light_1419',
+          names: ['Aftab Naik', 'Ayush Chavan'],
+          institute: 'VIT, Pune'
+        },
+        {
+          position: '2nd Runner Up',
+          team_id: 'P-158',
+          title: 'anujn_07',
+          names: ['Anuj Nagpure', 'Divyansh Kathkar'],
+          institute: 'PICT, Pune'
+        }
+      ]
+    },
+  ],
+}
   
   const timeline = [
     {
@@ -1105,4 +1559,4 @@ const core = [
   ];
   
   
-export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, judgeNavLinks, };
+export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, judgeNavLinks, results, };
