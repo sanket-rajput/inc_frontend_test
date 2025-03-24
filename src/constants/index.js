@@ -1058,9 +1058,9 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-AD1017',
-          title: 'FinBuddy AI - Personalised Finance Manager',
+          title: 'Guardians 360',
           names: ['Advait Joshi', 'Anshul Kalbande', 'Anurag Mandke', 'Amey Kulkarni', 'Tirthraj Mahajan'],
-          institute: 'VIIT, Pune'
+          institute: 'PICT, Pune'
         },
         {
           position: '1st runner up',
@@ -1072,7 +1072,7 @@ const results = {
         {
           position: '2nd Runner Up',
           team_id: 'IM-AD0048',
-          title: 'AI video editor and utility (SAAS)',
+          title: 'FinBuddy AI - Personalised Finance Manager',
           names: ['Mrinmayee Deshpande', 'Dipali Gangarde', 'Aniket Dhage'],
           institute: 'VIIT, Pune'
         }
@@ -1084,23 +1084,23 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-CN1018',
-          title: 'Dexx Aggregator',
+          title: 'TraceHost: Authenticity & Security Analyzer for Websites',
           names: ['Atharva Dhavale', 'Sakshi Chougule', 'Kartik Sirsillo', 'Aayush Meghal', 'Anuj Nagpure'],
-          institute: 'VIIT, Pune'
+          institute: 'PICT, Pune'
         },
         {
           position: '1st runner up',
           team_id: 'IM-CN0021',
-          title: 'AirGlove',
-          names: ['Shlok Khairnar', 'Shridhar Gore', 'Harshwardhan Saindane'],
-          institute: 'PCCOE, Pune'
+          title: 'Dexx Aggregator',
+          names: ['Shlok Khairnar', 'Shridhar Gore'],
+          institute: 'VIIT, Pune'
         },
         {
           position: '2nd Runner Up',
           team_id: 'IM-CN0015',
-          title: 'Guardians 360',
+          title: 'AirGlove',
           names: ['Akshay Dhere', 'Harshal Patil', 'Ayush Peshawar'],
-          institute: 'PICT, Pune'
+          institute: 'PCCOE, Pune'
         }
       ]
     },
@@ -1110,23 +1110,23 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-DS0007',
-          title: 'TraceHost: Authenticity & Security Analyzer for Websites',
+          title: 'Sanjeevani AI',
           names: ['Prasanna Patwardhan', 'Piyush Deshmukh', 'Yugandhar Chawale', 'Yash Kulkarni', 'Rahul Dewani'],
-          institute: 'PICT, Pune'
+          institute: 'VIIT, Pune'
         },
         {
           position: '1st runner up',
           team_id: 'IM-DS0013',
-          title: 'Careflex: Real-Time Health Monitoring System for Post-C-Section Recovery',
+          title: 'Crop Disease Detection System',
           names: ['Shubham Pawade', 'Supragy Mishra', 'Bhargavi Potode', 'Pratik Bhosale', 'Anooj Jilladwar'],
-          institute: 'K.K Wagh, Nashik'
+          institute: 'MITAOE, Pune'
         },
         {
           position: '2nd Runner Up',
           team_id: 'IM-DS0020',
-          title: 'Smart Dustbin: Automated Waste Segregation & Monitoring',
-          names: ['Vedant Nadhe', 'Pranav Bire', 'Arya Kadam', 'Saksham Saipatwar'],
-          institute: 'VIT, Pune'
+          title: 'AI video editor and utility (SAAS)',
+          names: ['Vedant Nadhe', 'Pranav Bire', 'Arya Kadam', 'Saksham Saipatwar', 'Harshwardhan Saindane'],
+          institute: 'VIIT, Pune'
         }
       ]
     },
@@ -1136,23 +1136,23 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-ES0035',
-          title: 'InsightX: Predictive maintenance ecosystem',
+          title: 'Smart Dustbin: Automated Waste Segregation & Monitoring',
           names: ['Om Ganjewar', 'Vaishnavi Gaikwad'],
           institute: 'VIT, Pune'
         },
         {
           position: '1st runner up',
           team_id: 'IM-ES0001',
-          title: 'Drone Based Intelligent System for Apple Orchard Monitoring',
+          title: 'Careflex: Real-Time Health Monitoring System for Post-CSection Recovery',
           names: ['Divya Bhavsar', 'Prasad Patil', 'Saniya Bhosale', 'Swadesh Jadhav', 'Tejas Deshmukh'],
           institute: 'K.K Wagh, Nashik'
         },
         {
           position: '2nd Runner Up',
           team_id: 'IM-ES0034',
-          title: 'Crop Disease Detection System',
+          title: 'SMART BLIND STICK USING GPS AND GSM',
           names: ['Ritanshu Sadaphale', 'Bhargavi Sarde'],
-          institute: 'MITAOE, Pune'
+          institute: 'VIT, Pune'
         }
       ]
     },
@@ -1162,21 +1162,21 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-ML0041',
-          title: 'SMART GRAIN MANAGEMENT ROBOT FOR EFFICIENT GRAIN STORAGE',
+          title: 'Site-Guide : Web Navigation Helper',
           names: ['Shantanu Shinde', 'Ashish Tembhekar'],
-          institute: 'SCE, Kopargaon'
+          institute: 'NCER, Pune'
         },
         {
           position: '1st runner up',
           team_id: 'IM-ML0068',
-          title: 'Sanjeevani AI',
+          title: 'Drone Based Intelligent System for Apple Orchard Monitoring',
           names: ['Oceania Kshetrimayum', 'Akshda Khairnar', 'Meghraj Bhavsar', 'Shrey Salunkhe', 'Pranav Prajapati'],
-          institute: 'VIIT, Pune'
+          institute: 'K.K Wagh, Nashik'
         },
         {
           position: '2nd Runner Up',
           team_id: 'IM-ML0063',
-          title: 'SMART BLIND STICK USING GPS AND GSM',
+          title: 'InsightX: Predictive maintenance ecosystem',
           names: ['Manish Pingale', 'Vedant Chandler', 'Sahil Dhawane', 'Sai Sinare'],
           institute: 'VIT, Pune'
         }
@@ -1188,23 +1188,23 @@ const results = {
         {
           position: 'Winner',
           team_id: 'IM-OT0041',
-          title: 'Site-Guide : Web Navigation Helper',
+          title: 'AnvikshAI : Crafting Adaptive Learning Journeys',
           names: ['Bhavesh Kale', 'Manas Shinde', 'Akash Shankpal', 'Umesh Bava', 'Harsh Agnani'],
-          institute: 'NCER, Pune'
+          institute: 'K.K Wagh, Nashik'
         },
         {
           position: '1st runner up',
           team_id: 'IM-OT0065',
-          title: 'AnvikshAI : Crafting Adaptive Learning Journeys',
+          title: 'AR Wardrobe',
           names: ['Atharva Patwardhan', 'Atharva Muchandi', 'Vishruti Mohinkar', 'Vedant Nagmotti'],
-          institute: 'K.K Wagh, Nashik'
+          institute: 'VIT, Pune'
         },
         {
           position: '2nd Runner Up',
           team_id: 'IM-OT0080',
-          title: 'AR Wardrobe',
+          title: 'SMART GRAIN MANAGEMENT ROBOT FOR EFFICIENT',
           names: ['Ayush Walzade', 'Yashraj Shinde', 'Sumit Kotame', 'Kunal Deharkar', 'Nikhil Bankar'],
-          institute: 'VIT, Pune'
+          institute: 'SCE, Kopargaon'
         }
       ]
     }
