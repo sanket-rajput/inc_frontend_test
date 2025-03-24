@@ -58,28 +58,39 @@ const Hero = () => {
           <span className='text-white font-bold text-lg sm:text-5xl absolute bottom-[14%] right-[4%] sm:bottom-[29%] sm:right-[12%] pointer-events-none'>2K25</span>
         </h1>
 
-        <div className='absolute bottom-[-10%] sm:bottom-[14.8%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300'>
+        <div className='absolute bottom-[-10%] sm:bottom-[14.8%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300 sm:hidden'>
           <motion.button
             style={{
               border,
             }}
             className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
-            onClick={() => {navigate(`/register`)}}
+            onClick={() => {navigate(`/results/impetus`)}}
           >
-           We&apos;re Live
+            Results are out!
           </motion.button>
         </div>
 
       </div>
-      <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 mt-10 sm:mt-16 xl:-mr-9 relative'>
-        <img loading='lazy'  src={light} alt="light" className='absolute object-cover pointer-events-none top-[-28%] translate-x-[50%] right-[50%] z-10 opacity-35 max-sm:hidden'/>
+      <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 sm:mb-6 max-sm:mt-10 xl:-mr-9 relative'>
+        <img loading='lazy'  src={light} alt="light" className='absolute object-cover pointer-events-none top-[-60%] translate-x-[50%] right-[50%] z-10 opacity-35 max-sm:hidden'/>
         <div className='w-[240px] h-[240px] sm:w-[400px] sm:h-[400px] relative'>
           <IncCanvas />
         </div>
         {/* <ShiftingCountdown /> */}
-        <h2 className='text-red-500 text-[150px] font-extrabold'>LIVE</h2>
+        {/* <h2 className='text-red-500 text-[150px] font-extrabold'>LIVE</h2> */}
       </div>
-    </div>
+      <div className='absolute bottom-[0%] sm:bottom-[11%] min-w-[50%] z-10 hover:scale-[1.03] active:scale-95 duration-300 max-sm:hidden'>
+        <motion.button
+          style={{
+            border,
+          }}
+          className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
+          onClick={() => {navigate(`/results/impetus`)}}
+        >
+          Results are out!
+        </motion.button>
+      </div>
+    </div>  
     <div className="absolute left-0 top-0 bottom-0 sm:w-10 w-4 bg-gradient-to-l from-[#000609]/0 to-[#000609]" />
     <div className="absolute bottom-0 top-0 right-0 sm:w-10 w-4 bg-gradient-to-r from-[#000609]/0 to-[#000609]" />
     <div className="absolute -bottom-1 left-0 right-0 h-20 bg-gradient-to-b from-[#000609]/0 to-[#000609]" />

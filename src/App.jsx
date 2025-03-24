@@ -14,13 +14,14 @@ import Footer from './components/footer'
 import { Suspense, lazy } from "react";
 import Admin from "./components/admin/AdminRoot";
 import AdminLogin from "./components/admin/AdminLogin";
-import JudgeRegister from "./components/forms/JudgeRegister";
+// import JudgeRegister from "./components/forms/JudgeRegister";
 import Judge from "./components/judge/JudgeRoot";
 import GenerateSynopsis from "./components/GenerateSynopsis";
 
 const Register = lazy(() => import("./components/Register"));
 const Committee = lazy(() => import("./components/committee"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
+const Results = lazy(() => import("./components/Results"));
 
 const App = () => {
   
@@ -46,11 +47,12 @@ const App = () => {
         {/* public routes */}
         <Route index element={<><Hero /><About /><Events /><AnimatedCounter /><Sponsors /><Notification /></>} />
         <Route path="/register" element={<RegisterHome />} />
-        <Route path="/register/judge/:event_name" element={<JudgeRegister />} />
+        {/* <Route path="/register/judge/:event_name" element={<JudgeRegister />} /> */}
         <Route path={`/register/:event`} element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><Register /></Suspense>} />
         <Route path="/events/:id" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><EventDetails /></Suspense>} />
         <Route path="/committee/:id" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><Committee /></Suspense>} />
         <Route path="/generate-synopsis/:event_name" element={<GenerateSynopsis />} />
+        <Route path="/results/:event_name" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><Results /></Suspense>} />
         <Route path="/test/" element={<Test />} />
 
         {/* admin routes */}
