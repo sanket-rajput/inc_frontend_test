@@ -94,10 +94,10 @@ const CollegeDetailsStep = ({ event, prevStep, nextStep }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(checkForPICTConcepts(formData.college)){
-      toast.info("Registrations closed for PICT.")
-      return;
-    }
+    // if(checkForPICTConcepts(formData.college)){
+    //   toast.info("Registrations closed for PICT.")
+    //   return;
+    // }
     if(event === "concepts"){
       setFormData((prev) => ({...prev, year: "BE"}));
     }

@@ -1,4 +1,4 @@
-import { Route, Routes, } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import ProtectedRoute from '../../ProtectedRoute';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -34,6 +34,8 @@ const Admin = () => {
             <Route path="/deallocate/:event_name" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><AdminDeallocate /></Suspense>} />
             <Route path="/results/:table_name" element={<Suspense fallback={<p style={{textAlign: 'center', padding: '150px 0'}}>Loading...</p>}><AdminResults /></Suspense>} />
           </Route>
+          {/* Catch-all for undefined admin routes */}
+          <Route path="*" element={<Navigate to="/admin" replace />} />
         </Routes>
       </div>
     </ThemeProvider>

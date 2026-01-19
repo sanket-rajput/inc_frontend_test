@@ -14,15 +14,18 @@ function TabsDemo() {
 
   const { id } = useParams()
   const divRef = useRef(null);
-  const [containerHeight, setContainerHeight] = useState(0);
+  const [containerHeight, setContainerHeight] = useState(800);
 
   useEffect(() => {
     scrollToTop()
+  }, [id])
+
+  useEffect(() => {
     if (divRef.current) {
       divRef.current.style.height = "auto";
-      setContainerHeight(divRef.current.scrollHeight)
+      setContainerHeight(divRef.current.scrollHeight + 300)
     }
-  }, [])
+  }, [id])
 
   const tabs = [
     {
@@ -59,32 +62,24 @@ function TabsDemo() {
         </div>
       ),
     },
-    // {
-    //   title: "Nova",
-    //   value: "nova",
-    //   content: (
-    //     <div
-    //       ref={divRef}
-    //       className={cn('w-full overflow-hidden relative p-px bg-tertiary', ``)}>
-    //       <span className='absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100'></span>
-    //       <EventDetails data={eventsData.nova}/>
-    //     </div>
-    //   ),
-    // },
   ];
 
+  // Check if the requested event exists
+  const isValidEvent = id && (id === 'impetus' || id === 'concepts' || id === 'pradnya');
+
+  if (!isValidEvent) {
+    return <Navigate to={'/page-not-found'} replace />;
+  }
+
   return (
-    (
-    (id === 'impetus' || id === 'concepts' || id === 'pradnya') ?
     <div
+      ref={divRef}
       style={{
-        height: `${containerHeight + 300}px`
+        minHeight: `${containerHeight}px`
       }}
       className={`pt-24 max-sm:px-2 max-w-[90rem] w-full mx-auto`}>
       <Tabs tabs={tabs} activeId={id}/>
     </div>
-    : <Navigate to={'/page-not-found'} />    
-    )
   );
 }
 

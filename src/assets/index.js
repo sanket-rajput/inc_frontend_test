@@ -8,7 +8,7 @@ import aboutbg from './about-bg.png'
 import prize from './prize.png'
 import loader from './loader.svg'
 import pagenotfound from './404_notfound.svg'
-import qr from './payment_qr.jpeg'
+import qr from './payment_qr2.png'
 import popper from './popper.gif'
 
 import csi from './company/csi.jpg'
