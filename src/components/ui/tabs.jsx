@@ -12,13 +12,16 @@ export const Tabs = ({
 }) => {
 
 	useEffect(() => {
+    if (!activeId || !propTabs?.length) return;
 
     const calcIndex = propTabs.findIndex(tab => tab.value === activeId)
     
-    moveSelectedTabToTop(calcIndex)
-    setActive(propTabs[calcIndex])
+    if (calcIndex >= 0) {
+      moveSelectedTabToTop(calcIndex)
+      setActive(propTabs[calcIndex])
+    }
 
-	}, [])
+	}, [activeId, propTabs])
 
   const [active, setActive] = useState(propTabs[0]);
   const [tabs, setTabs] = useState(propTabs);

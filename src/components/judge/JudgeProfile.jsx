@@ -20,7 +20,7 @@ const JudgeProfile = () => {
     <div className="max-w-lg mx-auto max-sm:mx-2 p-px bg-gradient-to-br from-dark-blue via-light-blue to-orange-100">
     <div className="bg-tertiary shadow-lg p-4 py-8 sm:p-6 text-center">
       {/* Title */}
-      <p className="text-sm text-orange-100 font-bold">INC 2025</p>
+      <p className="text-sm text-orange-100 font-bold">INC 2026</p>
       <h2 className="text-2xl font-bold text-white-100 mb-10">Judge Profile</h2>
 
       {/* User Details */}

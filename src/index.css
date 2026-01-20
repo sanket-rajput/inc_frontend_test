@@ -269,3 +269,133 @@ input:-webkit-autofill {
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+
+@keyframes flareMove {
+  0% { transform: translateX(-50%); }
+  50% { transform: translateX(140%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-flare {
+  animation: flareMove 6s linear infinite;
+}
+
+
+
+
+@keyframes floatParticles {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(20px, -10px, 0) scale(1.05); }
+  100% { transform: translate3d(-10px, 15px, 0) scale(1.02); }
+}
+
+@keyframes floatParticlesDelayed {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-25px, 10px, 0) scale(1.08); }
+  100% { transform: translate3d(15px, -15px, 0) scale(1.03); }
+}
+
+.animate-particles {
+  animation: floatParticles 18s ease-in-out infinite alternate;
+}
+
+.animate-particles-delayed {
+  animation: floatParticlesDelayed 22s ease-in-out infinite alternate;
+}
+
+@keyframes scrollGlow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { transform: translateY(0%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.animate-scroll {
+  animation: scrollGlow 1.9s ease-in-out infinite;
+}
+
+/* light beams behind cube */
+@keyframes beamSweep {
+  0% {
+    transform: translateX(-5%) translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(5%) translateY(-4px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-5%) translateY(2px);
+    opacity: 0.4;
+  }
+}
+
+.animate-beam {
+  animation: beamSweep 9s ease-in-out infinite;
+}
+
+.animate-beam-slow {
+  animation: beamSweep 13s ease-in-out infinite reverse;
+}
+
+/* shiny gradient animation on big INC */
+@keyframes incShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.inc-shine {
+  background-size: 200% 200%;
+  animation: incShine 14s ease-in-out infinite;
+}
+
+
+
+/* Scanline animation */
+.scanline {
+  animation: scan-move 6s linear infinite;
+}
+@keyframes scan-move {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* Slow breathing neon glow */
+@keyframes pulse-slow {
+  0%,100% { opacity: 0.55; filter: drop-shadow(0 0 15px rgba(0,255,255,0.3)); }
+  50% { opacity: 0.95; filter: drop-shadow(0 0 25px rgba(0,255,255,0.6)); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Corner pulse */
+.neon-corner {
+  animation: cornerPulse 3s ease-in-out infinite;
+}
+@keyframes cornerPulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+
+
+
+
+
+@keyframes arcFloat {
+  0%   { transform: translateY(0px) rotate(-90deg); }
+  50%  { transform: translateY(10px) rotate(-90deg); }
+  100% { transform: translateY(0px) rotate(-90deg); }
+}
+
+.animate-arcFloat {
+  animation: arcFloat 5s ease-in-out infinite;
+}

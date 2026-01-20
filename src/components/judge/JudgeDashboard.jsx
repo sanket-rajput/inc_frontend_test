@@ -39,7 +39,7 @@ const JudgeWelcome = ({ judgeData, logo }) => {
       {/* Description */}
       <p className="text-lg sm:w-[80%] text-white-100 leading-relaxed text-justify">
         We extend our heartfelt gratitude for your presence as a judge in the
-        <span className="font-semibold"> Impetus and Concepts (InC) 2025 </span> project competition.
+        <span className="font-semibold"> Impetus and Concepts (InC) 2026 </span> project competition.
         Your expertise and feedback play a pivotal role in recognizing and rewarding innovation on this esteemed platform. As a judge, your primary responsibility is to thoroughly assess project submissions based on predefined criteria
         and provide valuable feedback to participants.
         <br /><br />

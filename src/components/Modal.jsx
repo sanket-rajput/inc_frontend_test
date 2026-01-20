@@ -74,7 +74,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 									Latest Notifications
 								</h3>
 								<ul className="my-4 flex flex-col gap-2">
-									<li className="text-red-600 flex items-center gap-2">
+									{/* <li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
@@ -103,12 +103,22 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
 										<span className="text-white">Hurry up! Registrations close on March 5 at 11:59 PM IST. Don&apos;t miss out!</span>
-									</li>
+									</li> */}
 									<li className="text-red-600 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
-										<span className="text-white">Registrations are Live.</span>
+										<span className="text-white">Registrations for Impetus officially started.</span>
+									</li><li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Registrations for Concepts officially started.</span>
+									</li><li className="text-red-600 flex items-center gap-2">
+										<span className="flex-shrink-0">
+											<IconCircleFilled className="w-4 h-4" />
+										</span>
+										<span className="text-white">Registrations for Pradnya officially started.</span>
 									</li>
 								</ul>
 								<div className="flex gap-2">
