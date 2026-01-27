@@ -28,8 +28,8 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
   const ename = window.localStorage.getItem('event_name');
   const form = JSON.parse(window.sessionStorage.getItem('form'));
   const ticket = window.localStorage.getItem('ticket') || '';
-  const [minMembers, setMinMembers] = useState(2);
-  const [maxMembers, setMaxMembers] = useState(5);
+  const [minMembers, setMinMembers] = useState(1);
+  const [maxMembers, setMaxMembers] = useState(6);
   const [ getMembers, { data, isSuccess, isFetching: isGetMemsLoading } ] = useLazyGetMembersQuery();
   const [ getTechfiestaMembers, { data: techfiestaMems, isSuccess: isTechfiestaSuccess, isLoading: isTechfiestaLoading, error: techerr, isError: isTechfiestaError } ] = useLazyGetTechfiestaMembersQuery();
   const [ addMember, { isLoading } ] = useAddMemberMutation()
