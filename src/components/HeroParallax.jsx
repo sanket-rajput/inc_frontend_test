@@ -282,7 +282,7 @@ const Hero = () => {
       mix-blend-normal z-20
     "
   >
-    PICT INC Edition 39th
+    PICT INC 39th Edition
   </div>
 
   {/* --- MAIN INNER SECTION (CANVAS + FLARES) --- */}
@@ -366,7 +366,7 @@ const Hero = () => {
     flex items-center justify-between text-[10px]"
   >
     <p className="uppercase tracking-[0.25em] text-slate-200/90">
-      Mark the Dates: 20–22 March 2026
+      Save the Dates — 27 to 29 March 2026!
     </p>
 
     <div className="flex items-center gap-1">
