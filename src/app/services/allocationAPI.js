@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseURL = ("https://api.pyush.site") + "/allocations";
-// const baseURL = ("https://inc-2026-backend.onrender.com") + "/allocations";
- const baseURL = "https://inc-2026-backend.onrender.com/allocations";
+// // const baseURL = ("https://inc-2026-backend.onrender.com") + "/allocations";
+//  const baseURL = "https://inc-2026-backend.onrender.com/allocations";
 // const baseURL = "http://localhost:3001/allocations";
 
+const baseURL = `${import.meta.env.VITE_API_URL}/allocations`;
 
 export const allocationAPI = createApi({
     reducerPath: "allocations",

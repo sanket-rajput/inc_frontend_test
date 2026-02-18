@@ -1,9 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseURL = ("https://api.pyush.site") + "/judge";
-// const baseURL = ("https://inc-2026-backend.onrender.com") + "/judge";
- const baseURL = "https://inc-2026-backend.onrender.com/judge";
+// // const baseURL = ("https://inc-2026-backend.onrender.com") + "/judge";
+//  const baseURL = "https://inc-2026-backend.onrender.com/judge";
 // const baseURL = "http://localhost:3001/judge";
+
+
+const baseURL = `${import.meta.env.VITE_API_URL}/judge`;
+
 
 export const judgeAPI = createApi({
     reducerPath: "judges",
