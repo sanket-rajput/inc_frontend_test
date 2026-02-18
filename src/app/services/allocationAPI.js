@@ -9,7 +9,10 @@ const baseURL = `${import.meta.env.VITE_API_URL}/allocations`;
 
 export const allocationAPI = createApi({
     reducerPath: "allocations",
-    baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
+    baseQuery: fetchBaseQuery({
+  baseUrl: baseURL,
+  credentials: "include",   // ⭐ MUST BE HERE
+}),
     endpoints: (builder) => ({
         allocateJudge: builder.mutation({
           query: ({data, event_name}) => ({
